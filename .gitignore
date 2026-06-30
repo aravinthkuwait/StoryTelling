@@ -15,3 +15,11 @@ node_modules/
 # Env / secrets
 .env
 *.local
+
+# grandma-idly video: keep the final mp4 + build script, drop heavy intermediates
+projects/grandma-idly/assets/
+projects/grandma-idly/audio/
+projects/grandma-idly/out/scene*.mp4
+projects/grandma-idly/out/card_*.mp4
+projects/grandma-idly/out/body.mp4
+projects/grandma-idly/out/concat.txt
