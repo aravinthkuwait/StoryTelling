@@ -1,0 +1,17 @@
+# Vendored OpenMontage toolkit — not committed to this repo.
+# It is fetched/installed on demand via scripts/install-openmontage.sh
+# (see the "OpenMontage video creation" section in CLAUDE.md).
+/OpenMontage/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Env / secrets
+.env
+*.local
