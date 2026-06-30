@@ -23,3 +23,9 @@ projects/grandma-idly/out/scene*.mp4
 projects/grandma-idly/out/card_*.mp4
 projects/grandma-idly/out/body.mp4
 projects/grandma-idly/out/concat.txt
+# cinematic stitch: ignore downloaded clips + local stitch render/intermediates
+projects/grandma-idly/clips/*.mp4
+projects/grandma-idly/out/cine*.mp4
+projects/grandma-idly/out/body_cine.mp4
+projects/grandma-idly/out/concat_cine.txt
+projects/grandma-idly/out/paati_idli_cinematic.mp4

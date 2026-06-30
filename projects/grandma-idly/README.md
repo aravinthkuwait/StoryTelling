@@ -28,6 +28,21 @@ System packages required: `espeak-ng`, `ffmpeg`, `fonts-noto-core`
 Output: `out/paati_idli_shop.mp4` (1280×720, ~123s). Intermediate per-scene
 clips and assets are gitignored; only the final mp4 and this script are tracked.
 
+## Cinematic version (photoreal, with your characters)
+
+The free build above is stylized motion-graphics. A **photoreal cinematic** cut
+uses Higgsfield AI video clips of the characters (Aravinth, Hamruthaa, Mirthula,
+Nandini). Because this sandbox can't download Higgsfield's CDN, stitch it where
+the internet is open:
+
+- **`paati_idli_cinematic.ipynb`** — a Google Colab notebook (recommended).
+  `Runtime → Run all`: it downloads the 8 clips, synths the modern Google Tamil
+  voice (or free gTTS), stitches with cards + grade + letterbox, and downloads
+  the final `paati_idli_cinematic.mp4`. Optional Google TTS key for best voice.
+- **`stitch_cinematic.py`** — same result locally: drop the 8 clips into
+  `clips/01.mp4 … 08.mp4` (see `clips/README.md`) and run it. Uses the committed
+  `narration/` audio, so no API key is needed.
+
 ## Quality note
 
 This is a **stylized motion-graphic short**, not photoreal live action. The
