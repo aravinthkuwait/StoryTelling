@@ -25,6 +25,29 @@ Enforcement:
 
 To disable for a session, tell Claude "stop ponytail" / "stop headroom".
 
+## OpenMontage video creation
+
+[OpenMontage](https://github.com/calesthio/OpenMontage) is installed in this repo as the
+**default agent-driven video production toolkit**. Use it whenever the user asks to create
+a video "using OpenMontage" (or asks for a video and OpenMontage is the intended tool).
+
+- **Location:** `./OpenMontage/` (vendored, gitignored — not committed here).
+- **If `./OpenMontage/` is missing** (e.g. a fresh / ephemeral container), reinstall it first:
+  ```bash
+  bash scripts/install-openmontage.sh
+  ```
+  This fetches the source (tarball, since external `git clone` is blocked in this
+  environment), creates an isolated venv at `OpenMontage/.venv`, installs ffmpeg, and runs
+  the toolkit's `make setup`.
+- **How to drive it:** OpenMontage is agent-first. Before acting on an OpenMontage video
+  request, **read `OpenMontage/AGENT_GUIDE.md`** (its `CLAUDE.md` makes this mandatory) — it
+  contains the routing rules, pipeline manifests (`OpenMontage/pipeline_defs/`), and stage
+  skills (`OpenMontage/skills/`) that determine the workflow.
+- **Run Python tools** with the venv interpreter: `OpenMontage/.venv/bin/python`.
+- **API keys:** add provider keys to `OpenMontage/.env` (copied from `.env.example`) to
+  unlock cloud providers. Piper TTS and the Remotion zero-key demos work without any keys.
+- **ffmpeg** is required at render time and is installed by the setup script.
+
 ## Higgsfield Credit Optimization
 
 When using Higgsfield AI for video/image generation, follow this model hierarchy to conserve credits:
