@@ -67,6 +67,31 @@ Reduce by skipping the Wan draft on simple shots, or finishing more shots on Kli
 instead of Veo 3. Increase only if re‑rolls are needed. **Confirm the budget with the
 stakeholder before the finals pass** — it is the expensive step.
 
+### Low‑cost budget (preferred — cheapest models only, NO Veo 3)
+
+Use this when the directive is "lowest cost / available credits only." Single video
+pass on the cheapest model, no premium finals.
+
+| Pass | Count | Model | ~Each | ~Subtotal |
+|---|---|---|---|---|
+| Char refs | 7 | Nano Banana Pro | 2 | ~14 |
+| Keyframes | ~47 | Nano Banana Pro | 2 | ~94 |
+| Video (single pass) | ~47 | Wan 2.5 Fast | 9 | ~423 |
+| **Subtotal** | | | | **~531** |
+| Re‑roll buffer (~15%) | | | | ~80 |
+| **Low‑cost total** | | | | **~610 cr** |
+
+Optional small upgrade: finish only the 6 HERO shots on **Kling 3.0** (~+60 cr) →
+**~670 cr**, still no Veo 3.
+
+**Cost controls (apply when conserving credits):**
+- Generate one keyframe per shot; avoid speculative re‑rolls — fix the prompt instead.
+- One video pass on **Wan 2.5 Fast**; do not run a separate Kling/Veo finals pass.
+- **Never** use Veo 3 (~58 cr) or Veo 3 Fast (~22 cr) under the low‑cost directive.
+- Batch generations to fill concurrent slots (faster, same credit cost).
+- **Check the live balance first** (requires the generation backend connected) and stop
+  if a pass would exceed available credits.
+
 ## 5. Audio
 
 Produce per `05_audio_and_music.md`:
