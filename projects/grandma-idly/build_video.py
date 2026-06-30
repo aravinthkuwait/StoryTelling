@@ -12,9 +12,24 @@ Usage:
   python build_video.py --scene 1  # render only scene 1 (quick visual test)
 """
 from __future__ import annotations
-import argparse, math, os, subprocess, sys, json
+import argparse, math, os, subprocess, sys, json, base64, urllib.request
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+# ---- Voice config (modern Google Tamil neural TTS, with espeak fallback) ------
+TTS_VOICE = os.environ.get("TTS_VOICE", "ta-IN-Chirp3-HD-Achernar")
+TTS_RATE  = float(os.environ.get("TTS_RATE", "0.85"))
+
+def _google_key() -> str:
+    k = os.environ.get("GOOGLE_API_KEY", "").strip()
+    if k:
+        return k
+    envp = Path(__file__).resolve().parents[2] / "OpenMontage" / ".env"
+    if envp.exists():
+        for ln in envp.read_text().splitlines():
+            if ln.startswith("GOOGLE_API_KEY="):
+                return ln.split("=", 1)[1].strip()
+    return ""
 
 ROOT = Path(__file__).resolve().parent
 ASSETS, AUDIO, OUT = ROOT / "assets", ROOT / "audio", ROOT / "out"
@@ -188,20 +203,43 @@ def render_still(scene) -> Path:
     return out
 
 # ------------------------------------------------------------- audio -----------
+def _ffdur(path) -> float:
+    return float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration",
+        "-of","default=nk=1:nw=1", str(path)], capture_output=True, text=True).stdout.strip())
+
+def _google_tts(text, out_mp3) -> bool:
+    key = _google_key()
+    if not key:
+        return False
+    body = {"input": {"text": text},
+            "voice": {"languageCode": "ta-IN", "name": TTS_VOICE},
+            "audioConfig": {"audioEncoding": "MP3", "speakingRate": TTS_RATE}}
+    req = urllib.request.Request(
+        "https://texttospeech.googleapis.com/v1/text:synthesize?key=" + key,
+        data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
+    try:
+        r = json.load(urllib.request.urlopen(req, timeout=60))
+        Path(out_mp3).write_bytes(base64.b64decode(r["audioContent"]))
+        return True
+    except Exception as e:
+        print(f"   [google-tts failed: {str(e)[:120]}] -> falling back to espeak")
+        return False
+
 def synth(scene) -> tuple[Path, float]:
+    mp3 = AUDIO / f"scene{scene['id']:02d}.mp3"
+    if _google_tts(scene["narr"], mp3):
+        return mp3, _ffdur(mp3)
+    # fallback: offline espeak (robotic)
     wav = AUDIO / f"scene{scene['id']:02d}.wav"
-    # slow, slightly lower pitch for a calmer narration
     subprocess.run(["espeak-ng","-v","ta","-s","132","-p","36","-a","170",
                     "-g","8", scene["narr"], "-w", str(wav)], check=True)
-    dur = float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration",
-                  "-of","default=nk=1:nw=1", str(wav)], capture_output=True, text=True).stdout.strip())
-    return wav, dur
+    return wav, _ffdur(wav)
 
 # ------------------------------------------------------------- per scene -------
 def render_scene(scene) -> Path:
     still = render_still(scene)
     wav, dur = synth(scene)
-    seg = max(dur + 1.9, 8.5)          # pad ~0.6s lead + breathing tail
+    seg = max(dur + 4.0, 12.5)         # ~0.6s lead + breathing tail (longer for modern voice)
     frames = int(seg * FPS)
     # alternate slow zoom-in / zoom-out for variety (Ken Burns)
     zin = scene["id"] % 2 == 0
@@ -317,9 +355,9 @@ def main():
         print("single scene:", clips[0]); return
     print("==> intro + end cards")
     intro = render_card_clip("intro", "பாட்டியின் இட்லி கடை", "A Short Film",
-                             ((14,18,40),(4,5,14),(255,196,90)), dur=5.0, big=True)
+                             ((14,18,40),(4,5,14),(255,196,90)), dur=5.5, big=True)
     end   = render_card_clip("end", "அன்புடன்", "With love",
-                             ((40,28,16),(12,8,4),(255,206,120)), dur=6.0, big=True)
+                             ((40,28,16),(12,8,4),(255,206,120)), dur=7.0, big=True)
     final = assemble([intro] + clips + [end])
     dur = subprocess.run(["ffprobe","-v","error","-show_entries","format=duration",
               "-of","default=nk=1:nw=1", str(final)], capture_output=True, text=True).stdout.strip()

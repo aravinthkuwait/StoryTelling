@@ -8,7 +8,7 @@ environment blocks cloud TTS and AI video generation). Toolchain:
 
 | Layer | Tool | Notes |
 |---|---|---|
-| Narration | `espeak-ng` (`-v ta`) | Offline Tamil TTS — robotic, but real Tamil voice, zero cost |
+| Narration | Google Cloud TTS (`ta-IN-Chirp3-HD`) | Modern neural Tamil voice. Needs `GOOGLE_API_KEY` in `OpenMontage/.env`. Falls back to offline `espeak-ng -v ta` (robotic) when no key is set |
 | Visuals | Pillow | Illustrated cinematic scene stills, Tamil + English typography |
 | Motion / grade | ffmpeg | Ken Burns zoom/pan, warm color grade, film grain, 2.39 letterbox, intro/end cards |
 | Fonts | Noto Sans/Serif Tamil + Noto Serif | Tamil shaping via Pillow + libraqm |
@@ -30,8 +30,9 @@ clips and assets are gitignored; only the final mp4 and this script are tracked.
 
 ## Quality note
 
-This is a **stylized motion-graphic short**, not photoreal live action, and the
-narration is a synthetic (espeak) Tamil voice — those are the honest limits of a
-fully-free, offline, network-restricted build. For photoreal cinematic footage
-use AI video gen (Veo/Kling/Seedance — paid), and for a natural Tamil voice add a
-Google Cloud TTS or ElevenLabs key (free tiers exist) to `OpenMontage/.env`.
+This is a **stylized motion-graphic short**, not photoreal live action. The
+narration now uses a **modern Google Chirp3-HD Tamil neural voice** (set
+`GOOGLE_API_KEY` in `OpenMontage/.env`); without a key it falls back to the
+offline espeak voice (robotic). Swap voices with `TTS_VOICE=ta-IN-Chirp3-HD-Kore`
+(38 Tamil voices available) and pace with `TTS_RATE`. For photoreal cinematic
+footage use AI video gen (Veo/Kling/Seedance — paid).
