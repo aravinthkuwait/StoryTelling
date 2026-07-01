@@ -124,21 +124,29 @@ Abbreviation used in shot prompts: **`[STYLE]`** = the block above.
 - **Role:** Ancient, powerful, funny yet deeply emotional. Comic and wise.
 - **Seed:** `GENIE‑1005`
 
-**Consistency block:**
-> **GENIE:** a large friendly magical genie with **glowing translucent blue skin**, muscular
-> upper body, **no legs — a swirling smoke/wisp tail** instead of legs, bald head with a small
-> black topknot and a curled black beard, big expressive golden eyes, broad cartoonish grin.
-> Wears **golden ornaments**: thick gold cuffs/bracelets on both wrists, a gold collar‑necklace,
-> a jewelled gold earring, a red‑and‑gold sash. Emits soft blue light and floating sparkles.
-> Funny, warm, larger than life, very expressive face.
+> **PRODUCTION NOTE — Genie is GOLDEN‑AMBER, not blue.** The brief's blue genie is blocked by
+> Higgsfield's NSFW content filter (~30 attempts across models/colors/clothing all failed; see
+> `storyboard/MANIFEST.md`). A **golden‑amber** genie renders reliably and fits the film's warm
+> gold palette, so it is the canonical design. Canonical reference:
+> `23c9bd18-cff5-45e3-8a77-dbd13850edb1`. (Blue `46dfcea4` and violet `5e814f55` portraits also
+> exist if the filter is later relaxed.)
 
-**Reference image prompt:**
-> [STYLE] Character reference sheet of the GENIE — a large friendly genie with glowing
-> translucent blue skin, muscular torso, swirling blue smoke tail instead of legs, bald head
-> with small black topknot and curled beard, big golden eyes, broad grin; gold cuffs, gold
-> collar necklace, jewelled earring, red‑gold sash, floating blue sparkles. Dark palace
-> background with blue glow, full‑body and face close‑up, friendly expression, consistent
-> turnaround. No text.
+**Consistency block:**
+> **GENIE:** a large friendly magical genie with **warm glowing golden‑amber skin**, rounded
+> jolly upper body, **no legs — a swirling golden smoke/wisp tail** instead of legs, a tall
+> jewelled **golden turban with a red gem**, a short curled black beard, big expressive golden
+> eyes, broad cartoonish grin. Wears an **ornate golden‑and‑teal brocade robe** with **golden
+> ornaments**: thick gold cuffs on both wrists, a gold collar‑necklace, a jewelled gold earring,
+> a red‑and‑gold sash. Emits soft golden light and floating sparkles. Funny, warm, larger than
+> life, very expressive face.
+
+**Reference image prompt (Seedream 4.5 — Nano Banana filters this character):**
+> Wholesome Disney‑Pixar‑style 3D animated family cartoon. Character reference of the GENIE — a
+> big jolly friendly genie with warm golden‑amber skin, swirling golden smoke tail instead of legs,
+> a tall jewelled golden turban with a red gem, short curled black beard, big golden eyes, broad grin;
+> ornate golden‑and‑teal brocade robe, gold cuffs, gold collar necklace, jewelled earring, red‑gold
+> sash, floating golden sparkles. Dark palace background with a soft golden glow, full‑body and face
+> close‑up, friendly expression, consistent turnaround. No text.
 
 ---
 
