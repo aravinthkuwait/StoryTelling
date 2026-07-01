@@ -98,9 +98,31 @@ references for face/costume consistency.
 
 ---
 
-### Genie & the content filter
-Nano Banana's safety filter repeatedly false-positives on a **prominent blue genie**
-(bare-looking skin reads as nudity), even when described fully robed. Shots where the
-Genie is small/incidental generally pass; the close, dominant Genie shots (e.g. S4.1 the
-reveal) get flagged and are re-worked with the Genie smaller, turned, or further from
-camera. See chat for the live status of each Genie shot.
+### Genie & the content filter — FINAL STATUS
+
+Higgsfield's NSFW safety filter **systematically blocks a prominent blue-skinned genie**,
+across **both** providers tested — Nano Banana Pro (Google) and Seedream 4.5 (Bytedance) —
+and regardless of wording or clothing (bare-chested, fully robed, "wizard-spirit" reword,
+face-only-blue, text-only, reference-conditioned). It is an output-image filter reacting to
+the area of blue "skin," so it fires stochastically: ~22 Genie attempts, only 2 passed.
+
+**Usable Genie assets:**
+| Asset | Job ID | Model | Status |
+|---|---|---|---|
+| Genie standalone portrait (usable as the Genie reference) | `46dfcea4-00a2-4af5-b428-03ce2f02b510` | seedream_v4_5 | ✅ completed |
+| S7.4 everyone-moved (monkey + genie + parents) | `0b2a2693-a7d2-4c0a-b9d2-2632a0598033` | seedream_v4_5 | ✅ completed |
+
+**Blocked (9 shots)** — all NSFW-filtered, not generated: S4.1, S4.3, S5.6, S6.5, S7.5,
+S7.6, S8.1, S8.5, S9.2. Their prompts are ready in `../04_generation_prompts.md`.
+
+**Ways to complete the Genie shots later:**
+1. **Relax the account's content filter** (Higgsfield account settings / support) — the block
+   is a safety setting, not a prompt error.
+2. **Generate them in the Higgsfield web UI** manually (interactive filtering sometimes differs),
+   or on a non-Higgsfield image tool.
+3. **Composite** the working Genie portrait (`46dfcea4`) into the 9 backgrounds in an editor.
+4. **Redesign** the Genie to a non-blue palette (gold/emerald sage) — deviates from the brief
+   but renders reliably.
+
+Everything else (38 non-Genie shots + 6 character refs) generated cleanly and is in the
+Higgsfield library.
