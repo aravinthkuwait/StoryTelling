@@ -5,7 +5,17 @@ Turns the storyboard images + Tamil voice into one ~5‑minute film
 Tamil narration/dialogue (via `edge-tts` neural voices), and burned‑in Tamil
 subtitles. No API key needed.
 
-## Quick start
+## One-click build (recommended): `make_film_auto.py`
+Paste the whole of **`make_film_auto.py`** into a single Google Colab cell and run it —
+that's it. Every image URL (all 48 shots + the 12 Genie composites + the cut-out) is baked
+in, so it auto-downloads everything, composites the Genie, generates the Tamil voice, and
+downloads `magic_lamp_of_kindness.mp4`. No Drive, no uploads. (If a CDN URL ever 403s, that
+shot becomes a caption card and the film still finishes; drop a replacement in `/content/dl/`
+as `<shot>.png` or `<shot>_bg.png`.)
+
+`make_film.py` (below) is the manual/Drive-folder variant if you'd rather supply files yourself.
+
+## Quick start (manual variant — `make_film.py`)
 1. Open [Google Colab](https://colab.research.google.com/), New notebook.
 2. Paste `make_film.py` into a cell (or upload it and `%run make_film.py`). The
    first commented block installs deps — uncomment those `!pip` / `!apt` lines.

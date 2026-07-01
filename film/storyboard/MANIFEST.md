@@ -161,3 +161,22 @@ supply the files below. **This makes every scene show a real Genie.**
 Download those 10 from your Higgsfield library, drop them in the Colab `images/` folder with
 the names above, and the film renders with the Genie present in all 48 shots. Tune his position
 per shot in the script's `COMPOSITE` dict if needed.
+
+### Update — full one-click build (`../colab/make_film_auto.py`)
+
+Every image URL is now baked into `make_film_auto.py`, so it auto-downloads all 48 shots +
+composites + voice and exports the MP4 with **no manual steps** — paste it into one Colab cell.
+Three more shots turned out to also need the composite treatment (they contained the blue
+Genie), and three child close-ups were re-shot with the family in frame (the filter flags a lone
+small child):
+
+| Shot | New asset | Job ID |
+|---|---|---|
+| S3.3 | direct (family + lamp) | `793ce3b3-d77c-4a51-a038-5fcf6fabb9f4` |
+| S3.4 | direct (family + lamp) | `96afa08a-02c0-432c-afb8-d50d95c385fd` |
+| S3.6 | direct (family + burst) | `89802e08-b072-4d61-85e8-eec54e002daa` |
+| S4.2_bg | composite (girl → Genie) | `04dad970-cfdf-4cc6-a61c-f44a8cb7bf41` |
+| S7.1_bg | composite (family → Genie) | `278c3163-903b-4d28-a808-cfe3bb38aa69` |
+| CR_bg | composite (family+monkey → Genie) | `9d09477b-1efb-40a0-b733-f99ccd9ae72a` |
+
+So **all 48 shots are covered**: 36 direct images + 12 Genie composites, all verified.
