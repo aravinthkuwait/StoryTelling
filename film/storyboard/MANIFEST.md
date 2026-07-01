@@ -100,29 +100,37 @@ references for face/costume consistency.
 
 ### Genie & the content filter — FINAL STATUS
 
-Higgsfield's NSFW safety filter **systematically blocks a prominent blue-skinned genie**,
-across **both** providers tested — Nano Banana Pro (Google) and Seedream 4.5 (Bytedance) —
-and regardless of wording or clothing (bare-chested, fully robed, "wizard-spirit" reword,
-face-only-blue, text-only, reference-conditioned). It is an output-image filter reacting to
-the area of blue "skin," so it fires stochastically: ~22 Genie attempts, only 2 passed.
+Higgsfield's NSFW safety filter **systematically blocks a large magical Genie figure** in
+~90% of generations. This was confirmed exhaustively — **~30 attempts** across:
+- **2 providers:** Nano Banana Pro (Google) and Seedream 4.5 (Bytedance);
+- **3 skin colors:** blue, golden-amber, violet (recolor did **not** fix it);
+- every clothing/wording variant: bare, fully robed, high-collar, "wizard-spirit" reword,
+  face-only-colored, text-only, and reference-image-conditioned.
 
-**Usable Genie assets:**
+It is an **output-image filter** reacting to a big figure with visible "skin" area, and it
+fires **stochastically regardless of color or clothing** — only ~3 of ~30 attempts passed.
+Promptcraft cannot reliably beat it; this is an account/platform safety setting.
+
+**Usable Genie assets that DID pass (canonical = golden-amber):**
 | Asset | Job ID | Model | Status |
 |---|---|---|---|
-| Genie standalone portrait (usable as the Genie reference) | `46dfcea4-00a2-4af5-b428-03ce2f02b510` | seedream_v4_5 | ✅ completed |
-| S7.4 everyone-moved (monkey + genie + parents) | `0b2a2693-a7d2-4c0a-b9d2-2632a0598033` | seedream_v4_5 | ✅ completed |
+| Genie portrait — **golden-amber (canonical reference)** | `23c9bd18-cff5-45e3-8a77-dbd13850edb1` | seedream_v4_5 | ✅ |
+| Genie portrait — violet (alt) | `5e814f55-67cb-4abf-be95-0c8a8c4f2a2a` | seedream_v4_5 | ✅ |
+| Genie portrait — blue (matches original brief) | `46dfcea4-00a2-4af5-b428-03ce2f02b510` | seedream_v4_5 | ✅ |
+| **S7.4** everyone-moved (monkey + golden genie + parents) | `68f3f56a-657b-4739-8d9f-8de1fa3d3ab4` | seedream_v4_5 | ✅ |
+| S7.4 alt (blue genie version) | `0b2a2693-a7d2-4c0a-b9d2-2632a0598033` | seedream_v4_5 | ✅ |
 
-**Blocked (9 shots)** — all NSFW-filtered, not generated: S4.1, S4.3, S5.6, S6.5, S7.5,
-S7.6, S8.1, S8.5, S9.2. Their prompts are ready in `../04_generation_prompts.md`.
+**Still blocked (9 scene shots)** — every automated attempt NSFW-filtered: **S4.1, S4.3,
+S5.6, S6.5, S7.5, S7.6, S8.1, S8.5, S9.2**. Prompts are ready in `../04_generation_prompts.md`.
 
-**Ways to complete the Genie shots later:**
-1. **Relax the account's content filter** (Higgsfield account settings / support) — the block
-   is a safety setting, not a prompt error.
-2. **Generate them in the Higgsfield web UI** manually (interactive filtering sometimes differs),
+**Ways to complete the 9 Genie shots later:**
+1. **Relax the content filter** in the Higgsfield account (settings / support) — it's a safety
+   toggle, not a prompt error — then re-run the 9 prompts.
+2. **Generate them in the Higgsfield web UI** (interactive runs sometimes filter differently),
    or on a non-Higgsfield image tool.
-3. **Composite** the working Genie portrait (`46dfcea4`) into the 9 backgrounds in an editor.
-4. **Redesign** the Genie to a non-blue palette (gold/emerald sage) — deviates from the brief
-   but renders reliably.
+3. **Composite** the working golden Genie portrait (`23c9bd18`) into the 9 backgrounds in an editor.
+4. Accept the film with the Genie mostly implied/off-frame in those 9 beats (his dialogue still
+   carries the scenes via the narration/subtitle track).
 
-Everything else (38 non-Genie shots + 6 character refs) generated cleanly and is in the
-Higgsfield library.
+Everything else — **38 non-Genie shots + 6 character refs + Genie portraits + S7.4** — generated
+cleanly and is in the Higgsfield library.
