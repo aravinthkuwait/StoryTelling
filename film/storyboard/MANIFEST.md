@@ -152,7 +152,7 @@ supply the files below. **This makes every scene show a real Genie.**
 | S4.3_bg | `c24f42a1-4993-48f2-b826-d191e444e149` |
 | S5.6_bg | `a3d298aa-1c6f-430a-8f0c-18b7b5621e04` |
 | S6.5_bg | `d66c68e8-416b-4878-b777-437fd5303a5a` |
-| S7.5_bg | `ffa07f35-2287-44ac-902f-3562663cc8dc` |
+| S7.5_bg | `bbcd234c-1ccb-45b4-b879-e6c41300f8eb` |
 | S7.6_bg | `4f2c68d8-c0bb-467c-830a-86b613d3df5b` |
 | S8.1_bg | `686fa39e-763f-4be2-83b6-73c15d0d5ed8` |
 | S8.5_bg | `7d393ea5-2ae2-43b1-a159-8b7db517a0b8` |
