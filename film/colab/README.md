@@ -15,8 +15,22 @@ subtitles. No API key needed.
 4. Set `IMAGES_DIR` to that folder, then Run all. The MP4 auto‑downloads.
 
 Any shot whose file is missing becomes a captioned placeholder card, so the
-video is always end‑to‑end. The 9 filter‑blocked genie shots fall back to
-`GENIE.png` automatically (they're flagged `genie=True` in the script).
+video is always end‑to‑end.
+
+### Getting the Genie into all 9 blocked shots (compositing)
+The Genie can't be generated *inside* 9 scenes (Higgsfield NSFW filter), so instead
+we ship each of those scenes **without** the Genie plus a **transparent cut‑out** of
+him, and the script pastes him in. To use it, add these files to `images/`:
+- `GENIE_cut.png` — the transparent golden‑Genie cut‑out (job `6404dd29`).
+- `S4.1_bg.png, S4.3_bg.png, S5.6_bg.png, S6.5_bg.png, S7.5_bg.png, S7.6_bg.png,
+  S8.1_bg.png, S8.5_bg.png, S9.2_bg.png` — the Genie‑free backgrounds
+  (job IDs in [`../storyboard/MANIFEST.md`](../storyboard/MANIFEST.md) → "Genie SOLVED").
+
+The script's `COMPOSITE` dict controls where the Genie sits in each shot
+(`center‑x, center‑y, height, flip, alpha`) — tweak to taste. Priority per shot:
+your own `<shot>.png` → composited `<shot>_bg.png` + `GENIE_cut.png` → `GENIE.png`
+stand‑in → caption card. So once you drop in the 10 files above, **all 48 shots show
+the Genie**.
 
 ## Getting the images out of Higgsfield
 In your Higgsfield client, open each generation and download the PNG, then

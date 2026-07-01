@@ -45,6 +45,25 @@ FONT_CANDIDATES = [
 ]
 FONT = next((f for f in FONT_CANDIDATES if os.path.exists(f)), None)
 
+# ---- Genie compositing (gets the Genie into the 9 filter-blocked shots) ------
+# The Genie can't be generated inside these scenes (NSFW filter), so we generated
+# each SCENE WITHOUT the Genie ("<shot>_bg.png") plus a transparent Genie cut-out
+# ("GENIE_cut.png", = remove_background of the golden portrait) and paste him in.
+GENIE_CUT = "GENIE_cut.png"
+# shot -> (cx, cy, height_frac, flip_horizontal, alpha)
+#   cx,cy = Genie CENTER as a fraction of the frame; height_frac = his height / H.
+COMPOSITE = {
+ "S4.1": (0.50, 0.34, 0.62, False, 1.00),   # rising from the smoke column
+ "S4.3": (0.80, 0.52, 0.72, True , 1.00),   # right, facing the family
+ "S5.6": (0.19, 0.54, 0.72, False, 1.00),   # left, beside the family
+ "S6.5": (0.75, 0.56, 0.70, True , 1.00),   # right, beside Mirthula
+ "S7.5": (0.17, 0.54, 0.66, False, 1.00),   # left, hands toward the girl
+ "S7.6": (0.85, 0.26, 0.34, True , 1.00),   # small, upper-right of the montage
+ "S8.1": (0.18, 0.54, 0.72, False, 1.00),   # left, presenting the carpet
+ "S8.5": (0.80, 0.56, 0.42, True , 0.85),   # small, among the family
+ "S9.2": (0.72, 0.46, 0.60, False, 0.55),   # fading (low alpha) in the swirl
+}
+
 # =========================== CELL 3 — the film ===============================
 # Each shot: id, duration(s), genie=True if the (blocked) golden-genie stand-in
 # should be used when its own image is missing, and the spoken lines.
@@ -128,17 +147,47 @@ def synth(text, speaker, out):
     return out
 
 # =========================== CELL 5 — image helpers ==========================
-def load_or_placeholder(shot_id, is_genie, caption):
-    """Return a PIL RGB image WxH for the shot (real file, genie stand-in, or card)."""
+def _composite_genie(bg_rgb, genie_rgba, place):
+    """Paste the transparent Genie cut-out onto a background per placement tuple."""
+    cx, cy, hf, flip, alpha = place
+    if flip:
+        genie_rgba = genie_rgba.transpose(Image.FLIP_LEFT_RIGHT)
+    gw, gh = genie_rgba.size
+    th = max(1, int(H * hf)); g = genie_rgba.resize((max(1, int(gw * th / gh)), th), Image.LANCZOS)
+    if alpha < 1.0:
+        g.putalpha(g.split()[3].point(lambda v: int(v * alpha)))
+    x = int(W * cx - g.size[0] / 2); y = int(H * cy - g.size[1] / 2)
+    out = bg_rgb.convert("RGBA"); out.alpha_composite(g, (x, y))
+    return out.convert("RGB")
+
+def _find(name_no_ext):
     for ext in (".png", ".jpg", ".jpeg", ".webp"):
-        p = os.path.join(IMAGES_DIR, shot_id + ext)
+        p = os.path.join(IMAGES_DIR, name_no_ext + ext)
         if os.path.exists(p):
-            return _fit(Image.open(p).convert("RGB"))
+            return p
+    return None
+
+def load_or_placeholder(shot_id, is_genie, caption):
+    """Return a PIL RGB image WxH: final file > composited genie-on-bg > stand-in > card."""
+    # 1) a finished flat image for this shot, if you have one
+    p = _find(shot_id)
+    if p:
+        return _fit(Image.open(p).convert("RGB"))
+    # 2) composite the Genie cut-out onto this shot's genie-free background
+    if shot_id in COMPOSITE:
+        bg = _find(shot_id + "_bg")
+        cut = os.path.join(IMAGES_DIR, GENIE_CUT)
+        if bg and os.path.exists(cut):
+            return _composite_genie(_fit(Image.open(bg).convert("RGB")),
+                                    Image.open(cut).convert("RGBA"), COMPOSITE[shot_id])
+        if bg:
+            return _fit(Image.open(bg).convert("RGB"))   # background alone if no cut-out yet
+    # 3) golden Genie portrait stand-in
     if is_genie:
-        for ext in (".png", ".jpg", ".jpeg"):
-            g = os.path.join(IMAGES_DIR, "GENIE" + ext)
-            if os.path.exists(g):
-                return _fit(Image.open(g).convert("RGB"))
+        g = _find("GENIE")
+        if g:
+            return _fit(Image.open(g).convert("RGB"))
+    # 4) captioned placeholder card
     return _card(shot_id, caption)
 
 def _fit(img):
