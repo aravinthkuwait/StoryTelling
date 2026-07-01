@@ -12,7 +12,7 @@
 #  library and drop them in /content/dl/ as <shot>.png (or <shot>_bg.png).
 # =============================================================================
 
-import os, sys, subprocess, asyncio, textwrap, urllib.request, ssl
+import os, sys, subprocess, asyncio, threading, textwrap, urllib.request, ssl
 
 # ------------------------------------------------------------------ installs --
 subprocess.run("pip -q install edge-tts moviepy==1.0.3 imageio-ffmpeg pillow",
@@ -156,8 +156,14 @@ def download(fname, out):
         print("  ! download failed", out, "->", e); return None
 
 def synth(text, spk, out):
-    v,r,p = VOICES.get(spk, VOICES["narrator"])
-    asyncio.get_event_loop().run_until_complete(edge_tts.Communicate(text,v,rate=r,pitch=p).save(out)); return out
+    # Run edge-tts in a fresh thread+loop — robust inside Colab's running loop.
+    v,r,p = VOICES.get(spk, VOICES["narrator"]); err={}
+    def run():
+        try: asyncio.run(edge_tts.Communicate(text,v,rate=r,pitch=p).save(out))
+        except Exception as e: err["e"]=e
+    th=threading.Thread(target=run); th.start(); th.join()
+    if "e" in err: raise err["e"]
+    return out
 
 def fit(img):
     iw,ih=img.size; s=max(W/iw,H/ih); img=img.resize((int(iw*s)+1,int(ih*s)+1),Image.LANCZOS)

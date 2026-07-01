@@ -21,7 +21,7 @@
 # !apt-get -qq install -y fonts-noto ffmpeg >/dev/null      # Noto Tamil font + ffmpeg
 # (uncomment the two lines above when running in Colab)
 
-import os, asyncio, math, glob, textwrap, subprocess, shutil
+import os, asyncio, threading, math, glob, textwrap, subprocess, shutil
 
 # =========================== CELL 2 — config =================================
 from google.colab import drive  # comment out if not using Drive
@@ -138,12 +138,14 @@ from moviepy.editor import (ImageClip, AudioFileClip, CompositeAudioClip,
 from moviepy.audio.AudioClip import AudioClip as _AC
 from PIL import Image, ImageDraw, ImageFont
 
-async def _tts(text, voice, rate, pitch, out):
-    await edge_tts.Communicate(text, voice, rate=rate, pitch=pitch).save(out)
-
 def synth(text, speaker, out):
-    v, r, p = VOICES.get(speaker, VOICES["narrator"])
-    asyncio.get_event_loop().run_until_complete(_tts(text, v, r, p, out))
+    # Run edge-tts in a fresh thread+loop — robust inside Colab's running loop.
+    v, r, p = VOICES.get(speaker, VOICES["narrator"]); err = {}
+    def run():
+        try: asyncio.run(edge_tts.Communicate(text, v, rate=r, pitch=p).save(out))
+        except Exception as e: err["e"] = e
+    th = threading.Thread(target=run); th.start(); th.join()
+    if "e" in err: raise err["e"]
     return out
 
 # =========================== CELL 5 — image helpers ==========================
