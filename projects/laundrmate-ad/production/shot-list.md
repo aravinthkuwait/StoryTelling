@@ -3,13 +3,32 @@
 Clips must be generated and saved in **exact numerical order**. Filenames are
 fixed — the Colab merge notebook concatenates them by sorted filename.
 
-## Model policy (per repo credit rules)
+## Credit budget — HARD CAP: 800 credits total
 
-| Stage | Model | Notes |
-|---|---|---|
-| Character/location reference stills | Nano Banana Pro (~2 cr) | Lock family, delivery executive, shop interior, storefront banner |
-| Draft motion tests | Wan 2.5 Fast (~9 cr) | Iterate until continuity + realism pass |
-| Final render | Google Veo 3 (~58 cr) | **Final approved clips only** — never for drafts |
+| Stage | Model | Clips | Cost |
+|---|---|---|---|
+| Character/location reference stills | Nano Banana Pro (~2 cr) | 8 stills (family, executive, shop interior, storefront, hero garments) | ~16 |
+| Draft motion tests | Wan 2.5 Fast (~9 cr) | 11 AI clips (all except 03, 12, 14) | ~99 |
+| Final render — hero realism | Google Veo 3 (~58 cr) | 7 clips: 01, 04, 06, 07, 08, 10, 13 | ~406 |
+| Final render — standard | Google Veo 3 Fast (~22 cr) | 4 clips: 02, 05, 09, 11 | ~88 |
+| 3D text/UI clips in post (FFmpeg/motion graphics) | — no generation | 3 clips: 03 (app UI), 12 (offer card), 14 (final CTA) | 0 |
+| **Committed subtotal** | | | **~609** |
+| Retry reserve (draft re-rolls, up to ~3 Veo 3 re-renders) | | | ~191 |
+| **Total** | | | **≤ 800** |
+
+Rules:
+
+- Full Veo 3 is reserved for the clips where machine/human realism carries the
+  ad (opening, pickup, washing, drying, ironing, delivery). Never for drafts.
+- Clips 03, 12 and 14 are pure 3D interface/text per the direction — build them
+  as real motion graphics in post instead of AI generation. This costs zero
+  credits and guarantees pixel-exact text (phone number, offer dates, services
+  list), which AI video cannot reliably produce.
+- Draw from the retry reserve only after a clip fails the continuity checklist;
+  if the reserve runs low, downgrade remaining retries to Veo 3 Fast or Kling
+  3.0 (~8–10 cr) before touching full Veo 3 again.
+- Track spend after every batch with the Higgsfield balance tool; stop and
+  re-plan if committed + spent would exceed 800.
 
 Batch parallel generations to maximise concurrent slots.
 
@@ -71,8 +90,11 @@ Append to each generation prompt:
 ## Draft → final workflow
 
 1. Generate reference stills (Nano Banana Pro) → approve identities.
-2. Generate all 14 clips as drafts (Wan 2.5 Fast), in parallel batches.
-3. Review against `continuity-checklist.md`; regenerate failures as drafts.
-4. Only after the full 14-clip draft sequence plays as one continuous story:
-   re-render approved clips with Veo 3 for the final master.
+2. Generate the 11 AI clips as drafts (Wan 2.5 Fast), in parallel batches;
+   build clips 03, 12 and 14 as motion graphics in post (zero credits).
+3. Review against `continuity-checklist.md`; regenerate failures as drafts,
+   drawing from the retry reserve.
+4. Only after the full 14-clip sequence plays as one continuous story:
+   re-render approved clips at final quality — Veo 3 for the 7 hero clips,
+   Veo 3 Fast for the 4 standard clips — staying under the 800-credit cap.
 5. Merge with the Colab notebook; mux the three language VO tracks.

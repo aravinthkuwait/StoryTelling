@@ -17,9 +17,12 @@ pickup → laundry processing → drying → ironing → packing → delivery.
 ## Workflow
 
 1. **Reference stills** — lock characters/locations with Nano Banana Pro.
-2. **Drafts** — generate all 14 clips with Wan 2.5 Fast; iterate until the
-   sequence plays as one continuous story (run the continuity checklist).
-3. **Final renders** — re-render approved clips with Google Veo 3 only.
+2. **Drafts** — generate the 11 AI clips with Wan 2.5 Fast (clips 03, 12, 14
+   are motion graphics built in post); iterate until the sequence plays as one
+   continuous story (run the continuity checklist).
+3. **Final renders** — Veo 3 for the 7 hero clips, Veo 3 Fast for the 4
+   standard clips, within the **800-credit production cap** (see budget in
+   `production/shot-list.md`).
 4. **Merge** — run the Colab notebook to produce the silent master and the
    three deliverables:
    `Laundrmate_Advertisement_Tamil.mp4`, `Laundrmate_Advertisement_English.mp4`,
