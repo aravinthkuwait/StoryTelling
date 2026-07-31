@@ -32,8 +32,8 @@ Estimated spend so far: ~16 credits (8 stills). All 8 stills ✅ completed
 
 | Clip | Job ID | Status |
 |---|---|---|
-| draft_01 opening banner | `9bab9d19-27a3-478b-a9e7-35983d6d3d18` | in_progress |
-| draft_02 customer need | `cca3ae98-a5fe-4e34-89c0-94c0ac28ea5e` | in_progress |
+| draft_01 opening banner | `9bab9d19-27a3-478b-a9e7-35983d6d3d18` | ✅ completed — QC analysis `e97f982b-a723-48d4-8580-6a2d487a7306` (media `fc0d02d5`) running |
+| draft_02 customer need | `cca3ae98-a5fe-4e34-89c0-94c0ac28ea5e` | ✅ completed — QC analysis `e80aaae3-c54e-4594-a2c1-7a0184ab0b0f` (media `6f167de7`) running |
 | draft_04 pickup | — | BLOCKED grace_daily_limit_reached |
 | draft_05 receiving/sorting | — | BLOCKED grace_daily_limit_reached |
 | draft_06 washing load | — | BLOCKED grace_daily_limit_reached |
@@ -65,6 +65,17 @@ time. ACTION FOR OWNER: refresh the Higgsfield subscription/billing to lift
 the grace cap — the offer window (31-07 → 07-08-2026) leaves little slack.
 Known-good generation windows: accepted ~09:55 UTC 07-30 and ~02:03 UTC
 07-31; next retry armed for ~02:05 UTC 08-01.
+
+## Draft QC method
+
+Draft videos are QC'd with Higgsfield's `video_analysis_create` (scene-by-scene
+description, ~3-5 min/clip; does NOT count against the generation cap).
+Flow: `media_upload` presigned URL → sandbox `curl PUT` of the generated mp4 →
+`media_confirm` → `video_analysis_create(video_input_id)` → poll
+`video_analysis_status`. Judge the returned scene descriptions against
+`continuity-checklist.md`; anything ambiguous gets a manual single-frame
+base64 review (see below). NOTE: keep any base64 printout under ~15k chars —
+tool output truncates around 20k and a truncated dump is unusable.
 
 ## Notes on remote review
 
