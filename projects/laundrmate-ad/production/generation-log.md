@@ -19,7 +19,35 @@ Batch submitted 2026-07-30:
 | ref_07 | Washing machine drum/controls close-up | `47fb2fa9-d8ba-49c1-b17c-95698232812c` | in_progress (retried after limit reset) |
 | ref_08 | Steam ironing + packing station | `706d8a02-bfad-4ec0-92f6-01a011c48a46` | in_progress (retried after limit reset) |
 
-Estimated spend so far: ~16 credits (8 stills).
+Estimated spend so far: ~16 credits (8 stills). All 8 stills ✅ completed
+(refs 06–08 confirmed complete 2026-07-31).
+
+## Stage 2 — Draft clips (Seedance 2.0 Mini, 480p silent, ~5 cr each)
+
+> Model note: "Wan 2.5 Fast" no longer exists in the Higgsfield catalog.
+> Drafts use **`seedance_2_0_mini`** (5 cr / 5 s, multi-image references,
+> identity-consistent) — cheaper than the old Wan draft tier. Pass
+> `declined_preset_id: 24bae836-2c4a-48e0-89b6-49fcc0b21612` on every call:
+> the backend repeatedly suggests an unrelated "IN THE DARK" preset otherwise.
+
+| Clip | Job ID | Status |
+|---|---|---|
+| draft_01 opening banner | `9bab9d19-27a3-478b-a9e7-35983d6d3d18` | in_progress |
+| draft_02 customer need | `cca3ae98-a5fe-4e34-89c0-94c0ac28ea5e` | in_progress |
+| draft_04 pickup | — | BLOCKED grace_daily_limit_reached |
+| draft_05 receiving/sorting | — | BLOCKED grace_daily_limit_reached |
+| draft_06 washing load | — | BLOCKED grace_daily_limit_reached |
+| draft_07 washing montage | — | BLOCKED grace_daily_limit_reached |
+| draft_08 drying | — | BLOCKED grace_daily_limit_reached |
+| draft_09 saree/dry-clean | — | BLOCKED grace_daily_limit_reached |
+| draft_10 steam ironing | — | BLOCKED grace_daily_limit_reached |
+| draft_11 QC/packing | — | BLOCKED grace_daily_limit_reached |
+| draft_13 delivery | — | BLOCKED grace_daily_limit_reached |
+
+Draft reference-image mapping and prompts: reuse the submitted prompts for
+01/02 as the template; per-clip refs are per the shot-list continuity anchors.
+
+Spend including drafts 01–02: ~25 credits.
 
 ## Blocker history
 
@@ -28,6 +56,15 @@ the first 5 submissions. The limit reset later the same day; refs 06–08 were
 resubmitted successfully. Watch for the cap re-appearing mid-draft-batch —
 if a generation call errors with the daily-limit message, pause and re-arm a
 later check-in rather than burning retries.
+
+2026-07-31 ~02:10 UTC: cap hit again after 5 generations (refs 06–08 +
+drafts 01–02). **The account appears limited to ~5 generations per day while
+in the billing "grace period", despite 850+ credits on balance.** At this
+rate the remaining ~9 drafts + ~11 finals + retries ≈ a week of calendar
+time. ACTION FOR OWNER: refresh the Higgsfield subscription/billing to lift
+the grace cap — the offer window (31-07 → 07-08-2026) leaves little slack.
+Known-good generation windows: accepted ~09:55 UTC 07-30 and ~02:03 UTC
+07-31; next retry armed for ~02:05 UTC 08-01.
 
 ## Notes on remote review
 
