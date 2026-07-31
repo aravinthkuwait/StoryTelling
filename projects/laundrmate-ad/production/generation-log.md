@@ -32,8 +32,8 @@ Estimated spend so far: ~16 credits (8 stills). All 8 stills ✅ completed
 
 | Clip | Job ID | Status |
 |---|---|---|
-| draft_01 opening banner | `9bab9d19-27a3-478b-a9e7-35983d6d3d18` | ✅ completed — QC analysis `e97f982b-a723-48d4-8580-6a2d487a7306` (media `fc0d02d5`) running |
-| draft_02 customer need | `cca3ae98-a5fe-4e34-89c0-94c0ac28ea5e` | ✅ completed — QC analysis `e80aaae3-c54e-4594-a2c1-7a0184ab0b0f` (media `6f167de7`) running |
+| draft_01 opening banner | `9bab9d19-27a3-478b-a9e7-35983d6d3d18` | ❌ **REGEN** — QC `e97f982b`: no signboard close-up at the start (tracking shot begins at entrance), unscripted staff high-five ending, dusk-like grade instead of morning. Regen prompt must force: first frame = full-screen close-up of the illuminated LAUNDRMATE banner, then push-in; staff actions purposeful only (shutter, lights, prep); explicit "early morning golden light". |
+| draft_02 customer need | `cca3ae98-a5fe-4e34-89c0-94c0ac28ea5e` | ✅ **PASS** — QC `e80aaae3`: family matches refs (mother mustard kurti folding blue shirt, daughter braids + uniform with name tag, father adjusting shirt, grandmother maroon-gold saree, phone pickup, warm natural light). Final-render note: uniform must read navy-and-white (not checkered); show curtains/mats/shoes on screen. |
 | draft_04 pickup | — | BLOCKED grace_daily_limit_reached |
 | draft_05 receiving/sorting | — | BLOCKED grace_daily_limit_reached |
 | draft_06 washing load | — | BLOCKED grace_daily_limit_reached |
