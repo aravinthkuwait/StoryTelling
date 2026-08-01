@@ -44,10 +44,32 @@ Estimated spend so far: ~16 credits (8 stills). All 8 stills ✅ completed
 | draft_11 QC/packing | `e74be64c-07d9-47f2-9cd7-ca503ae7404e` | in_progress — succeeded on retry after 429 |
 | draft_13 delivery | `a7922db8-f2e6-497a-8b37-ee84b4643ccc` | in_progress — succeeded on retry after 429 |
 
-**All 11 draft clips (01 regen, 02, 04–11, 13) are now submitted.** Stage 2
-generation is complete pending QC. Next step: poll each job, run video_analysis
-QC on all, record PASS/REGEN verdicts, then move approved clips to Stage 3
-(final renders on Veo 3 / Veo 3 Fast per the credit-tier plan in shot-list.md).
+**All 11 draft clips (01 regen, 02, 04–11, 13) are now submitted and complete.**
+QC in progress for the 9 that finished this round (02 already passed earlier).
+
+## QC method update: use media_import_url, not media_upload/confirm
+
+`media_confirm` proved unreliable (repeated "Something went wrong" errors even
+after successful S3 PUTs). Switched to **`media_import_url`**, which pulls
+directly from the Higgsfield CDN result URL and returns an already-confirmed
+`media_id` in one call — no sandbox relay, no separate confirm step. Use this
+for all future QC imports.
+
+| Clip | Draft job ID | Imported media_id | Analysis ID | Verdict |
+|---|---|---|---|---|
+| 01 (regen v2) | `697fbb1d` | `fd5cffc5-efe2-4794-9f6b-9a355ce81eca` | `3f307fa4-9f4e-4222-8750-2818bbb019a6` | pending |
+| 04 pickup | `8a2ebf2a` | `01a15d18-ac3a-4834-86fc-732395be19e8` | `62605cc5-820a-405f-bd5e-52c391319335` | pending |
+| 05 sorting | `35ae0918` | `d006ee18-fe15-4587-a5bf-cd1d10abd225` | `3fac45cb-5d94-4afd-983b-c317f7d4cdd4` | pending |
+| 06 wash load | `4f8ceb64` | `7d4db92c-e162-43bf-957d-b9b4410d8ac5` | `79ac6bf8-5783-40fc-b8d9-d62978def6d1` | pending |
+| 07 wash montage | `42555379` | `8b426561-3cc6-4ea2-ac2a-18fc6b020c1d` | `3457ec9c-5580-48af-ae63-9b35050fe8cb` | pending |
+| 08 drying | `76397e59` | `efdf30ff-7782-4d88-a5a3-e05adb81d299` | `7fc87175-20e7-4931-aaf6-74497926388b` | pending |
+| 09 saree care | `5f288dfc` | `d3c2afa5-cb00-47bb-9316-561b2b676827` | `2962d2e5-b9f1-49b5-9775-e4c8c2a03360` | pending |
+| 10 ironing | `843d37f4` | `bc3858d0-7721-4575-9c1c-e4d26c05ed1d` | `538e91e3-a790-4364-a3fe-ab175e9eb448` | pending |
+| 11 QC/packing | `e74be64c` | `9820f8c4-f5cf-46c5-9b19-37cfacbe2aac` | `ee47b361-a4b1-41c0-b211-b596abb5b82b` | pending |
+| 13 delivery | `a7922db8` | `438a1a06-2cb3-4363-89da-449d19c72930` | `6b0a201d-3903-46da-904a-526815e1635b` | pending |
+
+Next: poll each `video_analysis_status`, judge against continuity-checklist.md,
+record PASS/REGEN, then report Stage 3 readiness for user confirmation.
 
 Draft reference-image mapping and prompts: reuse the submitted prompts for
 01/02 as the template; per-clip refs are per the shot-list continuity anchors.
