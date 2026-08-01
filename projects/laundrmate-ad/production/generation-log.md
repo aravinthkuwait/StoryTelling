@@ -57,31 +57,41 @@ for all future QC imports.
 
 | Clip | Draft job ID | Verdict |
 |---|---|---|
-| 01 (regen v3) | `ea1a8d13` | QC queued (analysis `86b5c6ff-fab5-4882-be30-762b6c407014`) |
+| 01 (regen v3) | `ea1a8d13` | ✅ **PASS** — banner fills frame as literal opening shot (teal panel, illuminated white block letters + subtext), no dusk/blue-hour grade this time (mixed cool interior + warm golden-hour on facade, read as morning not sunset), clean push into shop interior with staff at counter, no invented actions |
 | 02 customer need | `cca3ae98` | ✅ PASS (from earlier round) |
 | 04 pickup | `8a2ebf2a` | ✅ PASS — exec, mother, bag, tagging, loading all match refs |
 | 05 sorting | `35ae0918` | ✅ PASS (note: uniform read as "checkered" not plain navy-and-white — cosmetic, fix at final render) |
 | 06 wash load | `4f8ceb64` | ✅ PASS — full load→detergent→program→close→tumble sequence, human hands throughout |
 | 07 wash montage | `42555379` | ✅ PASS (note: "thick white soapy foam" a bit heavy — tone down at final render) |
-| 08 drying (regen v2) | `6ce3d144` | QC queued (analysis `5792b5fc-4a42-4906-a4fa-da88f602411c`) |
+| 08 drying (regen v2) | `6ce3d144` | ❌ **REGEN — 2nd failure, same root cause.** Description again shows a glass-door washer being pulled open and clothes retrieved by hand — no rotating dryer drum, no temperature/timer display, no time-lapse, despite an explicit "DRYER SCENE, not washing machine" prompt. Likely cause: no dedicated dryer reference still exists — only refs for the washing machine (`47fb2fa9`) and general shop interior (`30885248`) were supplied, so the model keeps anchoring to the washer identity. **Recommend: either (a) generate a dedicated dryer reference still first and retry once, or (b) treat as a post-production fix (cut the wash-unload footage short and build the drying beat from stock/motion-graphics), rather than a 3rd blind AI retry.** Flagging for user decision rather than spending more credits unprompted. |
 | 09 saree/dry-clean | `5f288dfc` | ✅ PASS — inspection, brushing, roll-polish press, blazer steaming, no washer in frame |
 | 10 ironing | `843d37f4` | ✅ PASS (note: saree/uniform ironing beats not shown, only shirt+trousers — acceptable, realism criteria met) |
-| 11 QC/packing (regen v2) | `78a33ff5` | QC queued (analysis `b6aee98c-6661-4001-95e6-803f8a752c89`) |
+| 11 QC/packing (regen v2) | `78a33ff5` | ✅ **PASS** — no phone anywhere; employee uses a printed paper checklist with pen; final action correctly places only the bagged/labelled garment into the branded bin/bag |
 | 13 delivery | `a7922db8` | ✅ PASS — exec→family handover→father's shirt→family group with grandmother's saree, natural reactions, evening light |
 
-**Score: 8/11 PASS, 3 regens (01, 08, 11) resubmitted below.**
+**FINAL SCORE: 10/11 PASS. Only clip 08 (drying) still fails after 2 attempts.**
 
-### Regen round 3 (01) / round 2 (08, 11) — submitted
+### Regen round 3 (01) / round 2 (08, 11) — results
 
-| Clip | New job ID | Fix applied |
-|---|---|---|
-| 01 opening (v3) | `ea1a8d13-0760-44bd-b389-5c5693f0d2c5` | Single reference image only (storefront), extreme close-up framing forced ("fills entire frame edge to edge, no street/people/vehicles/sky visible"), explicit "no orange/amber/dusk" negative repeated twice |
-| 08 drying | `6ce3d144-3aa8-4d6a-bebb-e361789e4b41` | Explicitly labeled "DRYER SCENE, not a washing machine scene", contrasting drum color, digital timer/temp display, time-lapse, forbids washing-machine loading action |
-| 11 QC/packing | `78a33ff5-54df-41aa-8f42-8ae4128f8c22` | Explicit "no phone or smartphone anywhere", paper checklist + pen instead of tablet, clarifies only the garment enters the bag |
+| Clip | New job ID | Fix applied | Result |
+|---|---|---|---|
+| 01 opening (v3) | `ea1a8d13-0760-44bd-b389-5c5693f0d2c5` | Single reference image only (storefront), extreme close-up framing forced, explicit "no orange/amber/dusk" negative repeated twice | ✅ PASS |
+| 08 drying (v2) | `6ce3d144-3aa8-4d6a-bebb-e361789e4b41` | Explicitly labeled "DRYER SCENE, not a washing machine scene", contrasting drum color, digital timer/temp display, time-lapse, forbids washing-machine loading action | ❌ still fails — replayed washer unload, no dryer drum/timer/time-lapse |
+| 11 QC/packing (v2) | `78a33ff5-54df-41aa-8f42-8ae4128f8c22` | Explicit "no phone or smartphone anywhere", paper checklist + pen instead of tablet, clarifies only the garment enters the bag | ✅ PASS |
 
-Next: poll these 3, QC via video_analysis, and if all pass, all 11 drafts are
-approved and Stage 3 (final Veo 3 / Veo 3 Fast renders) is ready — report to
-user for budget confirmation before spending.
+**Decision needed from user on clip 08** — per production policy, not spending a
+3rd blind AI-retry on it without confirmation. Options: (a) generate a
+dedicated dryer reference still (isolate from the washer look) and retry once
+more, ~2 cr + ~5 cr; (b) build the drying beat in post from stock/motion
+graphics instead of pure AI generation, per the shot-list.md fallback pattern
+already used for the 3D text/UI clips; (c) accept clip 06/07 (which already
+show a washing→foam→curtains/mat/shoes montage) as sufficient washing coverage
+and cut clip 08 down to a short reaction/temperature-check insert built from
+existing footage.
+
+**Stage 3 readiness:** 10 of 11 drafts are approved. Awaiting user confirmation
+before spending on Stage 3 final renders (Veo 3 / Veo 3 Fast, ~400+ credits
+per the tiered plan in shot-list.md) and before deciding clip 08's path.
 
 Draft reference-image mapping and prompts: reuse the submitted prompts for
 01/02 as the template; per-clip refs are per the shot-list continuity anchors.
