@@ -4,6 +4,49 @@ Running record of every Higgsfield job: IDs, status, and credits. Update after
 every batch. Budget cap: **800 credits**. Balance at production start:
 **866.4** (ultra plan).
 
+## Stage 3 — Final renders (Google Veo 3, in progress)
+
+User confirmed "do it" for both: (a) fix clip 08 via a dedicated dryer
+reference, (b) start Stage 3 final renders for all approved clips. Cost
+preflighted and confirmed: **Veo 3 preview (full) = 58 cr/clip, Veo 3 fast =
+22 cr/clip** — exact match to the shot-list.md tiered plan.
+
+Clip 08 fix: generated a dedicated dryer-only reference still (isolated from
+the washing machine look, since the model kept anchoring to the washer
+identity with no distinct dryer asset to draw on) —
+`f13dd05f-ebde-48a9-93be-b27a2082df97` (Nano Banana Pro, ~2 cr). Used directly
+as the Veo 3 final's start_image rather than re-testing on the cheap draft
+tier first, given the root-cause diagnosis was clear.
+
+**Veo 3 constraint:** unlike Seedance 2.0 Mini's multi-image `image_references`,
+Veo 3 only accepts a single `start_image`. Each final clip below uses the one
+most representative reference still; supporting characters/props are carried
+by the text prompt alone (adapted from the QC-validated draft prompts).
+
+| Clip | Tier | Job ID | start_image ref | Cost |
+|---|---|---|---|---|
+| 01 opening | Veo 3 preview | `aef28d55-1581-44b0-8b98-f03b0a1b6a9f` | storefront `379801f8` | 58 cr |
+| 02 customer need | Veo 3 fast | `d6ac9b29-340e-4e34-bb3c-3015c8425b75` | family `6eb8ad0d` | 22 cr |
+| 04 pickup | Veo 3 preview | `66512d8c-5cc3-4a9e-b161-1729072cb6ba` | executive `583e5e37` | 58 cr |
+| 05 sorting | Veo 3 fast | `4b44f73d-22e8-4e13-9f90-5c4bc2f96fd4` | bag `5acc2427` | 22 cr |
+| 06 wash load | Veo 3 preview | `ca958084-9c9c-4a12-af38-5da14e6eeb34` | washer `47fb2fa9` | 58 cr |
+| 07 wash montage | Veo 3 preview | `fb742f57-dfcd-4570-8a86-1f8d6f56f178` | washer `47fb2fa9` | 58 cr |
+| 08 drying (fixed) | Veo 3 preview | `e9a1aa48-365a-4350-a746-25c75a81c77d` | **new dryer ref** `f13dd05f` | 58 cr |
+| 09 saree/dry-clean | Veo 3 fast | `04d37726-6f47-4cd9-b2d7-267f68eeb83d` | garments `b212181e` | 22 cr |
+| 10 ironing | Veo 3 preview | `b03945e9-55eb-4caf-b3c0-f3a7b14a31fe` | station `706d8a02` | 58 cr |
+| 11 QC/packing | Veo 3 fast | `7646192d-9f16-4031-bc80-ea783af00212` | station `706d8a02` | 22 cr |
+| 13 delivery | Veo 3 preview | `e906fa4c-dd83-42c2-9e58-b177d83059cc` | family `6eb8ad0d` | 58 cr |
+
+**Batch cost: 494 credits (7×58 + 4×22) + 2 cr dryer ref = 496 credits.**
+Combined with Stage 1+2 spend (~120 cr), running total ≈ **616 credits of the
+800 cap** — leaves ~184 cr reserve for any final-render regens.
+
+Next: poll all 11 jobs (Veo 3 preview renders typically take longer than the
+Seedance mini drafts — check patiently), QC each via the media_import_url →
+video_analysis flow, and verify locked facts one more time on the finals
+(banner text, phone number, offer card wording/dates once those are built,
+character consistency) before handing off for edit/assembly.
+
 ## Stage 1 — Reference stills (Nano Banana Pro, ~2 cr each)
 
 Batch submitted 2026-07-30:
