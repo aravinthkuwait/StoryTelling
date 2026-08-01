@@ -41,8 +41,13 @@ Estimated spend so far: ~16 credits (8 stills). All 8 stills ✅ completed
 | draft_08 drying | `76397e59-46db-46d8-a933-8f4911736e9f` | in_progress |
 | draft_09 saree/dry-clean | `5f288dfc-cee7-4324-8676-ab8e20a83b83` | in_progress |
 | draft_10 steam ironing | `843d37f4-1175-412e-9c17-1cb8d62aa038` | in_progress |
-| draft_11 QC/packing | — | ❌ rate_limit_reached (429) ×2 — retry shortly, NOT the daily grace cap |
-| draft_13 delivery | — | not yet submitted (blocked behind 11 in the batch) |
+| draft_11 QC/packing | `e74be64c-07d9-47f2-9cd7-ca503ae7404e` | in_progress — succeeded on retry after 429 |
+| draft_13 delivery | `a7922db8-f2e6-497a-8b37-ee84b4643ccc` | in_progress — succeeded on retry after 429 |
+
+**All 11 draft clips (01 regen, 02, 04–11, 13) are now submitted.** Stage 2
+generation is complete pending QC. Next step: poll each job, run video_analysis
+QC on all, record PASS/REGEN verdicts, then move approved clips to Stage 3
+(final renders on Veo 3 / Veo 3 Fast per the credit-tier plan in shot-list.md).
 
 Draft reference-image mapping and prompts: reuse the submitted prompts for
 01/02 as the template; per-clip refs are per the shot-list continuity anchors.
