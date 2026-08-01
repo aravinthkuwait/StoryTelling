@@ -47,6 +47,39 @@ video_analysis flow, and verify locked facts one more time on the finals
 (banner text, phone number, offer card wording/dates once those are built,
 character consistency) before handing off for edit/assembly.
 
+**Update: all 11 renders completed** (checked 2026-08-01 ~17:05 UTC). Quick
+read of Higgsfield's own auto-generated scene descriptions (attached to each
+completed job) is very promising:
+- Clip 01: banner close-up confirmed again, "no dusk or sunset tones... bright
+  and crisp" — the fix held through to final quality.
+- Clip 08 (the fixed dryer shot): description now explicitly shows "warm,
+  completely dry garments tumble... dark charcoal-grey drum... digital
+  display showing 165°F and 8 minutes 12 seconds remaining... accelerated
+  time-lapse... opens the dryer door and lifts out warm, fully dry garments" —
+  every element that failed twice on the draft tier is now present. Root-cause
+  fix (dedicated dryer reference) appears to have worked.
+- Clip 11: no phone mentioned; "ticks boxes on a printed checklist with a pen"
+  confirmed.
+
+QC imports + video_analysis started on all 11 finals:
+
+| Clip | Imported media_id | Analysis ID |
+|---|---|---|
+| 01 | `0fd27c17-08d1-49f2-9846-0832029789e7` | `8222ebac-a5e7-4dd1-a27e-01bc975abf6a` |
+| 02 | `496ad9ad-5351-4052-abd3-e32e0772076e` | `cde460de-eab9-467a-9f66-ba5f6430d6d1` |
+| 04 | `fb2dbd99-c49f-4124-9171-ee7e9d4dab0b` | `7fba42be-1dc6-4fa5-9a18-324ecef22543` |
+| 05 | `cb7a4cbe-775b-437d-8cfd-bc9b43a0cf9a` | `5d259f81-c803-4ba0-9b79-50e287043b60` |
+| 06 | `10f7f5dd-303d-494c-a481-eee2626a6400` | `74345197-284c-4c95-94e8-a81d4687d5e7` |
+| 07 | `f1ba5f34-2b2f-4f33-b2ba-5c16fcfc3f61` | `1267816b-4df4-48a5-88f5-434f4694ff33` |
+| 08 | `0c624f37-4c24-40eb-9a0e-d0befe31c033` | `4dc132fa-a480-4812-8c03-31ce63809baf` |
+| 09 | `bb8767d2-6c60-439b-b039-c74c548259d7` | `bd57752c-d6ad-4378-9fe3-83017f0ca75b` |
+| 10 | `fae128d4-7451-43c6-a9c0-8a18105d4f6f` | `bc5081ea-e1c8-4674-82a2-d588d7bac209` |
+| 11 | `636e9d2f-7624-4c0d-81b0-193b5ff7fc27` | `23279409-fe74-492a-b75e-d60750707e51` |
+| 13 | `0af56906-0e52-48aa-be24-0c219d3c05b4` | `94f5c70f-e1cc-4035-b87d-4e4ff591e58f` |
+
+Next: poll these 11 analyses once complete, record formal PASS/REGEN verdicts
+against continuity-checklist.md (the scheduled 17:16 UTC check-in will do this).
+
 ## Stage 1 — Reference stills (Nano Banana Pro, ~2 cr each)
 
 Batch submitted 2026-07-30:
