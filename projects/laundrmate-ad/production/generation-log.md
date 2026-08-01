@@ -71,6 +71,18 @@ for all future QC imports.
 
 **Score: 8/11 PASS, 3 regens (01, 08, 11) resubmitted below.**
 
+### Regen round 3 (01) / round 2 (08, 11) — submitted
+
+| Clip | New job ID | Fix applied |
+|---|---|---|
+| 01 opening (v3) | `ea1a8d13-0760-44bd-b389-5c5693f0d2c5` | Single reference image only (storefront), extreme close-up framing forced ("fills entire frame edge to edge, no street/people/vehicles/sky visible"), explicit "no orange/amber/dusk" negative repeated twice |
+| 08 drying | `6ce3d144-3aa8-4d6a-bebb-e361789e4b41` | Explicitly labeled "DRYER SCENE, not a washing machine scene", contrasting drum color, digital timer/temp display, time-lapse, forbids washing-machine loading action |
+| 11 QC/packing | `78a33ff5-54df-41aa-8f42-8ae4128f8c22` | Explicit "no phone or smartphone anywhere", paper checklist + pen instead of tablet, clarifies only the garment enters the bag |
+
+Next: poll these 3, QC via video_analysis, and if all pass, all 11 drafts are
+approved and Stage 3 (final Veo 3 / Veo 3 Fast renders) is ready — report to
+user for budget confirmation before spending.
+
 Draft reference-image mapping and prompts: reuse the submitted prompts for
 01/02 as the template; per-clip refs are per the shot-list continuity anchors.
 
