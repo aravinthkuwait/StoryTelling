@@ -32,22 +32,30 @@ Estimated spend so far: ~16 credits (8 stills). All 8 stills ✅ completed
 
 | Clip | Job ID | Status |
 |---|---|---|
-| draft_01 opening banner | `9bab9d19-27a3-478b-a9e7-35983d6d3d18` | ❌ **REGEN** — QC `e97f982b`: no signboard close-up at the start (tracking shot begins at entrance), unscripted staff high-five ending, dusk-like grade instead of morning. Regen prompt must force: first frame = full-screen close-up of the illuminated LAUNDRMATE banner, then push-in; staff actions purposeful only (shutter, lights, prep); explicit "early morning golden light". |
+| draft_01 opening banner (REGEN v2) | `697fbb1d-c1e5-439c-8e41-2081d33793d5` | in_progress — prompt fixed: first-frame banner close-up, no high-fives, explicit morning light |
 | draft_02 customer need | `cca3ae98-a5fe-4e34-89c0-94c0ac28ea5e` | ✅ **PASS** — QC `e80aaae3`: family matches refs (mother mustard kurti folding blue shirt, daughter braids + uniform with name tag, father adjusting shirt, grandmother maroon-gold saree, phone pickup, warm natural light). Final-render note: uniform must read navy-and-white (not checkered); show curtains/mats/shoes on screen. |
-| draft_04 pickup | — | BLOCKED grace_daily_limit_reached |
-| draft_05 receiving/sorting | — | BLOCKED grace_daily_limit_reached |
-| draft_06 washing load | — | BLOCKED grace_daily_limit_reached |
-| draft_07 washing montage | — | BLOCKED grace_daily_limit_reached |
-| draft_08 drying | — | BLOCKED grace_daily_limit_reached |
-| draft_09 saree/dry-clean | — | BLOCKED grace_daily_limit_reached |
-| draft_10 steam ironing | — | BLOCKED grace_daily_limit_reached |
-| draft_11 QC/packing | — | BLOCKED grace_daily_limit_reached |
-| draft_13 delivery | — | BLOCKED grace_daily_limit_reached |
+| draft_04 pickup | `8a2ebf2a-82f2-480e-b3d1-6f46ceffcbb0` | in_progress |
+| draft_05 receiving/sorting | `35ae0918-72db-493f-9664-f858fe2c6039` | in_progress |
+| draft_06 washing load | `4f8ceb64-c6d1-4e08-a523-49adbf483c3f` | in_progress |
+| draft_07 washing montage | `42555379-7356-4600-85e0-4daa91c0c62b` | in_progress |
+| draft_08 drying | `76397e59-46db-46d8-a933-8f4911736e9f` | in_progress |
+| draft_09 saree/dry-clean | `5f288dfc-cee7-4324-8676-ab8e20a83b83` | in_progress |
+| draft_10 steam ironing | `843d37f4-1175-412e-9c17-1cb8d62aa038` | in_progress |
+| draft_11 QC/packing | — | ❌ rate_limit_reached (429) ×2 — retry shortly, NOT the daily grace cap |
+| draft_13 delivery | — | not yet submitted (blocked behind 11 in the batch) |
 
 Draft reference-image mapping and prompts: reuse the submitted prompts for
 01/02 as the template; per-clip refs are per the shot-list continuity anchors.
 
-Spend including drafts 01–02: ~25 credits.
+**Billing update 2026-07-31 ~04:15 UTC: balance jumped 866.4 → 3841.4 credits
+and the daily grace_daily_limit_reached cap is GONE — 8 of 10 queued
+generations in this batch were accepted in one shot.** The grace-period
+restriction appears lifted (owner may have refreshed billing, or the grace
+period simply expired/upgraded). The only error hit this round was a
+short-term `rate_limit_reached` (429) on clips 11 and 13 — a burst/concurrency
+throttle, unrelated to the old daily cap — expected to clear within minutes.
+
+Spend so far: ~25 (drafts 01–02) + ~40 (8 new drafts @ ~5cr) ≈ 65 credits.
 
 ## Blocker history
 
@@ -65,6 +73,13 @@ time. ACTION FOR OWNER: refresh the Higgsfield subscription/billing to lift
 the grace cap — the offer window (31-07 → 07-08-2026) leaves little slack.
 Known-good generation windows: accepted ~09:55 UTC 07-30 and ~02:03 UTC
 07-31; next retry armed for ~02:05 UTC 08-01.
+
+2026-07-31 ~04:15 UTC: **grace_daily_limit_reached cap no longer occurring.**
+Balance jumped to 3841.4 credits and a batch of 8 generations submitted
+without any daily-limit error. The remaining production (drafts 08–13 done
+this round, finals to follow) can now proceed at normal speed. Only
+short-lived `rate_limit_reached` (429) throttling was seen (clips 11, 13),
+which clears within minutes — retry rather than wait 24h.
 
 ## Draft QC method
 
