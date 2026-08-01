@@ -57,16 +57,16 @@ for all future QC imports.
 
 | Clip | Draft job ID | Verdict |
 |---|---|---|
-| 01 (regen v2) | `697fbb1d` | ❌ **REGEN #3** — still dusk-toned exterior wide shot with no banner close-up at all (opens on a wide storefront ext. with a random pedestrian and rickshaw). Core requirement keeps failing. |
+| 01 (regen v3) | `ea1a8d13` | QC queued (analysis `86b5c6ff-fab5-4882-be30-762b6c407014`) |
 | 02 customer need | `cca3ae98` | ✅ PASS (from earlier round) |
 | 04 pickup | `8a2ebf2a` | ✅ PASS — exec, mother, bag, tagging, loading all match refs |
 | 05 sorting | `35ae0918` | ✅ PASS (note: uniform read as "checkered" not plain navy-and-white — cosmetic, fix at final render) |
 | 06 wash load | `4f8ceb64` | ✅ PASS — full load→detergent→program→close→tumble sequence, human hands throughout |
 | 07 wash montage | `42555379` | ✅ PASS (note: "thick white soapy foam" a bit heavy — tone down at final render) |
-| 08 drying | `76397e59` | ❌ **REGEN** — no dryer drum rotation, no temperature/timer check, no time-lapse; model replayed a washing-machine sequence (door/detergent/button) instead of drying |
+| 08 drying (regen v2) | `6ce3d144` | QC queued (analysis `5792b5fc-4a42-4906-a4fa-da88f602411c`) |
 | 09 saree/dry-clean | `5f288dfc` | ✅ PASS — inspection, brushing, roll-polish press, blazer steaming, no washer in frame |
 | 10 ironing | `843d37f4` | ✅ PASS (note: saree/uniform ironing beats not shown, only shirt+trousers — acceptable, realism criteria met) |
-| 11 QC/packing | `e74be64c` | ❌ **REGEN** — employee places a **smartphone** into the delivery bag instead of the packed garment; off-script, confusing, unrealistic action |
+| 11 QC/packing (regen v2) | `78a33ff5` | QC queued (analysis `b6aee98c-6661-4001-95e6-803f8a752c89`) |
 | 13 delivery | `a7922db8` | ✅ PASS — exec→family handover→father's shirt→family group with grandmother's saree, natural reactions, evening light |
 
 **Score: 8/11 PASS, 3 regens (01, 08, 11) resubmitted below.**
