@@ -83,7 +83,7 @@ QC imports + video_analysis started on all 11 finals:
 |---|---|
 | 01 opening | ❌ **REGEN** — reverted to the original failure: wide ext. shot, "golden-hour" sky (dusk-adjacent), two random pedestrians walking past, shutter mostly closed. No banner close-up at all. The Seedance draft fix did not transfer to Veo 3. |
 | 02 customer need | ✅ PASS — family present and consistent (mustard kurti mother, uniform daughter, maroon-gold saree grandmother, light blue shirt father); dialogue drifted from script ("drawing book" instead of uniform) but scene intent matches, no continuity violations |
-| 04 pickup | ⚠️ **ACCEPTED WITH NOTE** — mechanically correct (exec, bike, bag, tagging) but the recipient is a generic unrelated woman, not the established mustard-kurti mother. Root cause: Veo 3 only accepts one start_image, so the family reference wasn't available for this exec-anchored shot. Not regenerating a 3rd time against the budget reserve; flagged for the user — options are accept as-is (delivery exec + "a customer" reads fine standalone) or spend a further retry. |
+| 04 pickup (regen v2) | User asked to prioritize mother continuity over budget headroom — resubmitted `75b2e4c9-0542-41ee-9c68-a87c22bff782`, swapping the start_image to the **mother/family reference** (`6eb8ad0d`) instead of the executive ref, with the executive's look (teal polo, navy cap, navy bike) carried entirely by text. QC pending. |
 | 05 sorting | ✅ PASS — scan, sort into separate baskets, care-label check, consistent shop interior |
 | 06 wash load | ✅ PASS (note: staff shown in navy polo, not brand teal — cosmetic, matches clip 07's same drift) |
 | 07 wash montage | ❌ **REGEN — brand safety issue.** QC description explicitly names **"Miele Professional"** on the washing machine — a real, recognisable competing appliance brand rendered onto equipment. Not acceptable for a commercial. Resubmitted with an explicit no-real-brand-names / unbranded-machine instruction. |
@@ -93,7 +93,14 @@ QC imports + video_analysis started on all 11 finals:
 | 11 QC/packing | ✅ PASS — no phone; clipboard + pen checklist; garment folded, bagged, placed correctly |
 | 13 delivery | ✅ **PASS — best result of the batch.** All four family members present and fully consistent (exec hands bag to the correct mustard-kurti mother, daughter with pressed uniform, father buttoning shirt, grandmother in maroon-gold saree). |
 
-**Score: 8/11 clean PASS, 1 accepted-with-note (04), 2 regenerating (01, 07).**
+**Score: 8/11 clean PASS, 3 regenerating (01, 04, 07).**
+
+Cost update: with clip 04's regen (58 cr) added to the 01+07 regens (116 cr),
+this round's retries total 174 cr. Running total ≈ **616 + 174 = 790 credits
+of the 800 cap** — essentially the full budget. Balance on the actual
+Higgsfield account remains healthy (3244.4 cr) — the 800 cap is our own
+project budget ceiling, not an account limit. Any further regens beyond this
+round would need an explicit go-ahead to raise the project cap.
 
 Regens resubmitted with hardened prompts:
 - **01 v2 (final tier):** `e84558e8-ed8c-48a0-8111-d79210d98a4e` — forces the close-up hold for 2+ seconds before any camera movement, explicitly forbids pedestrians/street/dusk/golden-hour.
