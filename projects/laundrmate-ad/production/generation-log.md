@@ -77,8 +77,31 @@ QC imports + video_analysis started on all 11 finals:
 | 11 | `636e9d2f-7624-4c0d-81b0-193b5ff7fc27` | `23279409-fe74-492a-b75e-d60750707e51` |
 | 13 | `0af56906-0e52-48aa-be24-0c219d3c05b4` | `94f5c70f-e1cc-4035-b87d-4e4ff591e58f` |
 
-Next: poll these 11 analyses once complete, record formal PASS/REGEN verdicts
-against continuity-checklist.md (the scheduled 17:16 UTC check-in will do this).
+### Stage 3 formal QC verdicts (2026-08-01 ~17:15 UTC)
+
+| Clip | Verdict |
+|---|---|
+| 01 opening | ❌ **REGEN** — reverted to the original failure: wide ext. shot, "golden-hour" sky (dusk-adjacent), two random pedestrians walking past, shutter mostly closed. No banner close-up at all. The Seedance draft fix did not transfer to Veo 3. |
+| 02 customer need | ✅ PASS — family present and consistent (mustard kurti mother, uniform daughter, maroon-gold saree grandmother, light blue shirt father); dialogue drifted from script ("drawing book" instead of uniform) but scene intent matches, no continuity violations |
+| 04 pickup | ⚠️ **ACCEPTED WITH NOTE** — mechanically correct (exec, bike, bag, tagging) but the recipient is a generic unrelated woman, not the established mustard-kurti mother. Root cause: Veo 3 only accepts one start_image, so the family reference wasn't available for this exec-anchored shot. Not regenerating a 3rd time against the budget reserve; flagged for the user — options are accept as-is (delivery exec + "a customer" reads fine standalone) or spend a further retry. |
+| 05 sorting | ✅ PASS — scan, sort into separate baskets, care-label check, consistent shop interior |
+| 06 wash load | ✅ PASS (note: staff shown in navy polo, not brand teal — cosmetic, matches clip 07's same drift) |
+| 07 wash montage | ❌ **REGEN — brand safety issue.** QC description explicitly names **"Miele Professional"** on the washing machine — a real, recognisable competing appliance brand rendered onto equipment. Not acceptable for a commercial. Resubmitted with an explicit no-real-brand-names / unbranded-machine instruction. |
+| 08 drying (fixed) | ✅ **PASS — root-cause fix confirmed.** Real dryer drum tumbling, digital panel reads 165°F, employee opens door and retrieves warm dry garments, saree/sneakers drying separately. The two prior failures (replayed washer sequence) are resolved. |
+| 09 saree/dry-clean | ✅ PASS — gloved inspection, roller/press treatment, careful hand movements, no washer in frame |
+| 10 ironing | ✅ PASS (note: employee shown in apron over patterned blouse rather than teal polo — cosmetic uniform drift, same single-reference limitation as clip 04/06/07) |
+| 11 QC/packing | ✅ PASS — no phone; clipboard + pen checklist; garment folded, bagged, placed correctly |
+| 13 delivery | ✅ **PASS — best result of the batch.** All four family members present and fully consistent (exec hands bag to the correct mustard-kurti mother, daughter with pressed uniform, father buttoning shirt, grandmother in maroon-gold saree). |
+
+**Score: 8/11 clean PASS, 1 accepted-with-note (04), 2 regenerating (01, 07).**
+
+Regens resubmitted with hardened prompts:
+- **01 v2 (final tier):** `e84558e8-ed8c-48a0-8111-d79210d98a4e` — forces the close-up hold for 2+ seconds before any camera movement, explicitly forbids pedestrians/street/dusk/golden-hour.
+- **07 v2:** `b0846efc-2a50-427b-a67e-106bf955409c` — explicit "no visible brand names, logos, or manufacturer markings... completely unbranded/generic" instruction added.
+
+Cost: 2 × 58 cr = 116 cr. Running total ≈ **616 + 116 = 732 credits of the 800
+cap** — only ~68 cr reserve remains. No further blind retries without
+checking back with the user first.
 
 ## Stage 1 — Reference stills (Nano Banana Pro, ~2 cr each)
 
