@@ -106,9 +106,45 @@ Regens resubmitted with hardened prompts:
 - **01 v2 (final tier):** `e84558e8-ed8c-48a0-8111-d79210d98a4e` — forces the close-up hold for 2+ seconds before any camera movement, explicitly forbids pedestrians/street/dusk/golden-hour.
 - **07 v2:** `b0846efc-2a50-427b-a67e-106bf955409c` — explicit "no visible brand names, logos, or manufacturer markings... completely unbranded/generic" instruction added.
 
-Cost: 2 × 58 cr = 116 cr. Running total ≈ **616 + 116 = 732 credits of the 800
-cap** — only ~68 cr reserve remains. No further blind retries without
-checking back with the user first.
+### Round 2 QC verdicts — IMPORTANT: job_display's text is not real QC
+
+Discovered a methodology issue: `job_display`'s description field echoes Veo 3's
+own **enhanced prompt** (what it intended to render), not an independent
+analysis of the actual output frames. It can look like the fix worked while
+the real video didn't change. `video_analysis_create`/`video_analysis_status`
+(which genuinely inspects rendered frames) is the only trustworthy QC signal —
+all verdicts below are from that, not from job_display text.
+
+| Clip | Verdict |
+|---|---|
+| 01 opening v2 | ❌ **STILL FAILS — 2nd final-tier failure, same exact pattern.** True video_analysis shows the identical original problem: static wide shot, golden-hour light, two pedestrians walking past, palm trees and auto-rickshaws — no banner close-up at all, despite the prompt explicitly forcing one. **Root cause identified:** Veo 3's `start_image` is used as the literal first frame of the video (unlike Seedance's blended `image_references`). Our storefront reference (`379801f8`) is itself a wide establishing photo, not a tight banner crop — so Veo 3 keeps animating outward from that wide composition regardless of what the text prompt demands. Prompt engineering alone cannot fix this; the reference image itself needs to already be the close-up. **Not retrying a 3rd time** per budget instruction — see recommendation below. |
+| 07 wash montage v2 | ✅ **PASS — brand-safety issue resolved.** No real brand names in the QC description this time; machines read as generic stainless steel, LAUNDRMATE-only branding confirmed. Staff shown in navy polo rather than teal (same cosmetic drift as clips 06/10) — a note, not a blocker. |
+| 04 pickup v2 | ⚠️ **PARTIAL — primary goal achieved, new drift introduced.** The mother now correctly appears in her mustard-yellow kurti (the requested fix worked). However the scene relocated: it opens on all four family members together in the apartment at sunset (duplicating clip 13's family-reveal beat) and the handover itself happens in an indoor hallway, not the exterior morning street specified. Bike color also drifted to teal instead of navy. Likely the same start_image-as-literal-first-frame effect as clip 01, since the family reference photo is an interior sunset-lit shot. |
+
+**Final tally: 9 of 11 clips are clean, ad-ready passes** (02, 05, 06, 07, 08,
+09, 10, 11, 13). **Clip 04** has the right mother now but wrong setting/time-
+of-day — usable with a caveat, or worth one more attempt if the budget cap is
+raised. **Clip 01** still fails outright after 2 final-tier attempts.
+
+### Recommendation for clip 01 (do not spend further without this fix)
+
+Re-reading `FINAL_DIRECTION.md`'s own spec for this beat: *"Use a brief
+premium 3D logo animation only during the first second, then immediately
+transition into real footage."* **The banner reveal was never supposed to be
+AI-generated live-action video in the first place** — the master creative
+brief already calls for a 3D/motion-graphics logo card for that opening
+second, exactly matching the shot-list.md pattern already used for the pure
+text/UI clips (03, 12, 14) at zero AI cost. Recommend: build the banner
+close-up as a ~1s motion-graphics card (LAUNDRMATE wordmark, teal panel,
+matches the verified still `379801f8`), then hard-cut into the **shop-interior
+portion of clip 01's Veo 3 footage**, which renders correctly in both v1 and
+v2 (staff opening up, wiping counters, switching on lights — that part has
+passed twice). This fully resolves the failure at zero additional AI spend.
+
+**No new AI generation spend this round** (round 2 was QC-only, via the free
+`video_analysis` flow, on the already-submitted v2 jobs). Final running total
+stays at **790 of the 800 credit cap** — production spend is effectively
+complete pending the clip 01 / clip 04 decisions above.
 
 ## Stage 1 — Reference stills (Nano Banana Pro, ~2 cr each)
 
