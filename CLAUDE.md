@@ -66,3 +66,7 @@ When using Higgsfield AI for video/image generation, follow this model hierarchy
 - **NEVER** use Google Veo 3 (~58 cr) for test or draft generations
 - **Final render only** → Google Veo 3 is permitted for the final polished output
 - Batch parallel generations to maximize concurrent slots per plan
+
+## Quality Skills (Hermes — always-on)
+
+- **requesting-code-review**: Security scan + quality gates before every commit.
