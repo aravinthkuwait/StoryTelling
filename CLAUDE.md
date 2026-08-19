@@ -70,3 +70,13 @@ When using Higgsfield AI for video/image generation, follow this model hierarchy
 ## Quality Skills (Hermes — always-on)
 
 - **requesting-code-review**: Security scan + quality gates before every commit.
+
+
+## Multi-machine Sync Rule (MANDATORY)
+
+This repo is worked on from MULTIPLE machines (PC Claude Code + VPS Hermes).
+Before starting ANY task: run `git pull` first (pull the current branch).
+Never edit a file without having pulled the latest version first.
+If a push is rejected (non-fast-forward): pull, resolve, then push.
+Never leave uncommitted changes at end of session — commit + push so the
+other machine starts fresh. GitHub is the single source of truth.
