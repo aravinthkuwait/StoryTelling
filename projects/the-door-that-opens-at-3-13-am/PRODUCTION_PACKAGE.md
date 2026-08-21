@@ -684,6 +684,24 @@ Running log of everything actually produced via Higgsfield for this project (as 
 | 2026-08-21 | Combined continuity test — Arjun (doorway, foreground) + Maya (far corridor end), both locked elements in one frame, matches Scene 4 reveal | `803ca713-bf23-4ce3-ad8d-9cdd662527a4` | nano_banana_2 | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_151836_803ca713-bf23-4ce3-ad8d-9cdd662527a4.png |
 | 2026-08-21 | **First video shot generated — Scene 4, S4-C** (6s), start-image = continuity test still above, both locked elements, horror genre tag, no native audio (dialogue/Foley/score added in Colab pass) | `de8e99eb-f1bf-4eab-b9a0-012bec0b692d` | seedance_2_0 (mode std, 1080p) | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_152733_de8e99eb-f1bf-4eab-b9a0-012bec0b692d.mp4 |
 
+**Shot render log (bulk pass, 2026-08-21):**
+
+| Shot | Job ID | Mode/Res | URL |
+|---|---|---|---|
+| S1-B | `5441a540-5be7-4ac7-82f1-d79e4f3d4082` | std/1080p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154348_5441a540-5be7-4ac7-82f1-d79e4f3d4082.mp4 |
+| S1-C | `7b4f5e7b-505f-4756-8943-9fc7d36deab3` | std/1080p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154420_7b4f5e7b-505f-4756-8943-9fc7d36deab3.mp4 |
+| S2-A | `57953f57-ced4-4ea1-8476-8c19659c7c87` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154347_57953f57-ced4-4ea1-8476-8c19659c7c87.mp4 |
+| S2-B | `3ab8b667-6ef5-4b05-9ac3-7109eb912ebc` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154638_3ab8b667-6ef5-4b05-9ac3-7109eb912ebc.mp4 |
+| S2-C | `e5285897-6441-4f87-9143-fb3ac9775cad` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154347_e5285897-6441-4f87-9143-fb3ac9775cad.mp4 |
+| S2-D | `24debffd-5969-4798-ad0e-83104c965e9a` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154347_24debffd-5969-4798-ad0e-83104c965e9a.mp4 |
+| S2-E | `24882251-ff03-4960-9bf0-77ceb8ccad10` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154348_24882251-ff03-4960-9bf0-77ceb8ccad10.mp4 |
+| S2-F | `f6e70575-4547-4f04-89e6-0c154c1119e0` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154347_f6e70575-4547-4f04-89e6-0c154c1119e0.mp4 |
+| S2-G | `06a62d89-f139-4cb2-b052-f69d9ee5c343` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154348_06a62d89-f139-4cb2-b052-f69d9ee5c343.mp4 |
+| S3-A | `b61f701b-c793-42f7-b2cb-4990d839d1c8` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154419_b61f701b-c793-42f7-b2cb-4990d839d1c8.mp4 |
+| S4-C | `de8e99eb-f1bf-4eab-b9a0-012bec0b692d` | std/1080p | (see earlier row above) |
+
+Remaining: S3-B through S10-B (in progress, next bulk passes).
+
 **Voice lock:** Arjun's spoken lines use preset voice **Fraser** (`voice_id: 6705e465-7b52-5915-a1d8-b1222885e01d`, `voice_type: preset`) per user direction — update §18 dialogue-performance direction to treat this as the locked Arjun voice going forward. Narrator and Maya voices remain to be selected/locked in the next audio pass (recommend a distinct deep male preset for Narrator, distinct from Fraser, and a calm female preset for Maya — to be confirmed before bulk dialogue generation).
 
 Note: Higgsfield's `nano_banana_pro` model request was auto-routed to `nano_banana_2` by the backend for both jobs above; output quality and element-reference behavior were unaffected.
