@@ -628,7 +628,7 @@ independent AI-assisted short films reach more people.
 
 ## 27. GOOGLE COLAB / FFMPEG ASSEMBLY
 
-See `colab/assemble_the_door_that_opens_at_313am.py` (companion file in this same folder) for the full runnable pipeline: clip normalization → ambience bed construction → dialogue/SFX/music layering → ducking → loudness/limiting → final mux → automated QC checks. Summary of stages:
+See `colab/assemble_the_door_that_opens_at_313am.ipynb` (companion file in this same folder, complete and ready to run in Google Colab) for the full runnable pipeline: clip normalization → ambience bed construction → dialogue/SFX/music layering → ducking → loudness/limiting → final mux → automated QC checks. Summary of stages:
 
 1. Ingest all Higgsfield clip exports + all audio stems (dialogue WAVs, score stems, Foley, ambience beds) into `/content/assets/`.
 2. `ffprobe` every video clip — log resolution, fps, duration, pixel format.
@@ -769,4 +769,4 @@ Note: Higgsfield's `nano_banana_pro` model request was auto-routed to `nano_bana
 
 ---
 
-*Production package version 1.1 (in progress — character locks complete, video/audio generation underway). Companion files: `colab/assemble_the_door_that_opens_at313am.py`, `prompts/shot-prompts.md` (full per-shot Higgsfield prompt text), `prompts/frame-match-log.csv`.*
+*Production package version 1.2 — character locks complete, all 41 video shots and all 12 Tamil dialogue lines generated, Colab assembly notebook complete and ready to run. Companion file: `colab/assemble_the_door_that_opens_at_313am.ipynb`.*
