@@ -770,3 +770,22 @@ Note: Higgsfield's `nano_banana_pro` model request was auto-routed to `nano_bana
 ---
 
 *Production package version 1.2 — character locks complete, all 41 video shots and all 12 Tamil dialogue lines generated, Colab assembly notebook complete and ready to run. Companion file: `colab/assemble_the_door_that_opens_at_313am.ipynb`.*
+
+---
+
+## 29.1 FINAL FILM — ASSEMBLY RESULT (2026-08-21)
+
+**Final film assembled and QC-passed on this date (VPS Hermes run of the Colab assembly notebook).**
+
+- **Final file:** `output/The_Door_That_Opens_at_3_13_AM_Final.mp4`
+- **Duration:** 196.71s (3:16) — expected 195.00s per §28; +1.71s from clip length rounding (normalized to exact 24fps)
+- **Size:** 71,096,562 bytes (71.0 MB) — re-encoded at CRF 21 (medium) to fit GitHub's 100 MB push limit; full-quality master (130.8 MB, ~5.3 Mbps) retained at `door_313am_work/out/`
+- **Spec:** 1920×1080, 24fps, H.264 (yuv420p) + AAC 48kHz stereo @ 192k, ~5.3 Mbps
+- **QC:** PASS — `ffprobe` streams valid; `ffmpeg -v error -i <file> -f null -` decode scan returned **zero errors**
+- **Pipeline:** 41 shots + intro black card downloaded from Higgsfield CDN → normalized to 1920×1080@24 → concatenated silent master (196.71s) → ambience bed (198s) + original score bed + SFX layer + 13 dialogue lines placed on the §16 timeline → loudnorm I=-14/TP=-1/LRA=11 master (measured input -17.00 dB, TP -0.91, LRA 20.3) → muxed
+- **Execution notes (non-Colab host):**
+  - Notebook `ROOT` was adapted from `/content/door_313am` to a local writable path (no root on this VPS, `/content` not creatable)
+  - `!apt-get install ffmpeg` cell replaced with an ffmpeg-presence check (ffmpeg 7.1.4 already installed)
+  - Two notebook bugs fixed during execution: (1) concat demuxer double-path prefix when ROOT is relative — resolved by using an absolute ROOT; (2) loudnorm measure pass used `-v error` which suppresses the JSON output (ffmpeg prints it at info level) — measure pass now uses `-v info` and slices the JSON block (trailing mux stats after the closing brace)
+- **Errors encountered:** none blocking — all fixed as above, full pipeline completed
+- **Assets retained:** `door_313am_work/` (raw clips, normalized clips, stems: ambience/score/sfx/dialogue/mix_prelimiter, master_silent.mp4, mastered_audio.wav) — kept for re-mix/QC needs
