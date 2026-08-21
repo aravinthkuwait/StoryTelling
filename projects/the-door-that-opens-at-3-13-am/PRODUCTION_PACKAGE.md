@@ -733,7 +733,35 @@ Running log of everything actually produced via Higgsfield for this project (as 
 | S10-A | `b287ac96-cc3f-4f70-9f53-f73474142177` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160920_b287ac96-cc3f-4f70-9f53-f73474142177.mp4 |
 | S10-B | `3b6d07c0-3b47-4038-893a-48aa84b44dde` | std/1080p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160920_3b6d07c0-3b47-4038-893a-48aa84b44dde.mp4 |
 
-**All 40 video shots complete (2026-08-21).** S1-B through S10-B are generated per the shot timeline in §1. S11-A (final black-screen whisper) is audio-only, no video generation needed — see §17/§10 for its Colab treatment. Remaining work before final assembly: dialogue/narration TTS pass (§17–§19), original score and ambience layers (§13–§16), and the Colab/FFmpeg assembly itself (§27).
+**All 40 video shots complete (2026-08-21).** S1-B through S10-B are generated per the shot timeline in §1. S11-A (final black-screen whisper) is audio-only, no video generation needed — see §17/§10 for its Colab treatment. Remaining work before final assembly: original score and ambience layers (§13–§16, not obtainable via Higgsfield in this session — see note below), and the Colab/FFmpeg assembly itself (§27).
+
+**Voice lock (confirmed by user 2026-08-21):**
+- Arjun → preset **Fraser**, `voice_id 6705e465-7b52-5915-a1d8-b1222885e01d`
+- Maya → preset **Helena**, `voice_id 3c2b83c0-2e0a-5ae8-998a-a5fe71b7eccd`
+- Narrator → preset **Cillian**, `voice_id d8ba9f14-8a24-44db-932b-99e16c45bd32`
+- Engine: `text2speech_v2`, variant `elevenlabs` (multilingual, handles Tamil script directly)
+
+**Dialogue/narration TTS — complete (12/12 lines, 2026-08-21):**
+
+| Time | Speaker | Line | Job ID | URL |
+|---|---|---|---|---|
+| 00:09 | Narrator | சில கதவுகள்... நாம திறக்கக்கூடாது. சில கதவுகள்... தானாகவே திறக்கும். | `37d360d7-2663-46a0-b906-8799e145bcc3` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172614_37d360d7-2663-46a0-b906-8799e145bcc3.mp3 |
+| 00:32 | Arjun | யாரு...? | `e10ed907-88b2-4add-9570-9ebd2c12deb9` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172615_e10ed907-88b2-4add-9570-9ebd2c12deb9.mp3 |
+| 00:43 | Narrator | மூணு நாளா... சரியா 3:13க்கு... அதே சத்தம். அதே கதவு. ஆனா... வெளியே யாருமே இல்லை. | `848cf6fa-55c0-43d8-aea6-8f0c2c5f3e3b` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_848cf6fa-55c0-43d8-aea6-8f0c2c5f3e3b.mp3 |
+| 01:07 | Arjun | யார்... நீ? | `3140f44c-e88f-4221-afe4-9d8b20bc9027` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172756_3140f44c-e88f-4221-afe4-9d8b20bc9027.mp3 |
+| 01:25 | Arjun | உன்னை... நான் எங்கேயோ பார்த்திருக்கேன்... | `9ff3973b-99ac-4e7f-85bb-a7415970b700` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_9ff3973b-99ac-4e7f-85bb-a7415970b700.mp3 |
+| 01:29 | Maya | அர்ஜுன்... | `2476b988-3f4c-43c1-942b-9b53248da159` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_2476b988-3f4c-43c1-942b-9b53248da159.mp3 |
+| 01:44 | Arjun | இல்ல... இது... உண்மை இல்ல. | `044b0304-4e4d-4406-a45c-e5d8044aadf8` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_044b0304-4e4d-4406-a45c-e5d8044aadf8.mp3 |
+| 01:48 | Maya | நான் உன்னை கூட்டிட்டுப் போக வரல... நீ தான்... இங்கிருந்து வரணும். | `de2fcb29-3f5d-4505-acb7-81cf5e11e1fe` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172614_de2fcb29-3f5d-4505-acb7-81cf5e11e1fe.mp3 |
+| 02:09 | Maya | நேரமாச்சு... | `f74e333a-2120-43af-9a05-414a0807f210` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_f74e333a-2120-43af-9a05-414a0807f210.mp3 |
+| 02:12 | Arjun | என்ன நேரம்? | `c94a4cd2-4900-4736-a597-39f50886f71c` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_c94a4cd2-4900-4736-a597-39f50886f71c.mp3 |
+| 02:15a | Maya | நீ இறந்து... | `53c0c199-04ce-4917-ab11-d02ad6e52e0b` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_53c0c199-04ce-4917-ab11-d02ad6e52e0b.mp3 |
+| 02:15b | Maya | நாலு நாள் ஆச்சு. | `078b76fa-e7a3-4782-baee-29c82d5b26ec` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_078b76fa-e7a3-4782-baee-29c82d5b26ec.mp3 |
+| 02:58 | Maya (final whisper) | இப்போதாவது... வந்துட்டியே. | `bcbbf42c-230e-4256-a618-abc8714d511b` | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_172755_bcbbf42c-230e-4256-a618-abc8714d511b.mp3 |
+
+Notes: 02:15 is split into two files (`a`/`b`) to allow the hard 1–2s silence and cut-to-Arjun-reaction specified in §15/§16 to be inserted between them during Colab assembly, rather than baked into one continuous TTS take. The 02:58 final whisper line will need close-mic/whisper post-processing (lower volume, slight high-pass, narrow stereo) applied in the FFmpeg pass — the TTS engine cannot control mic-distance/intimacy directly from text alone.
+
+**IMPORTANT — audio pipeline gap:** Higgsfield's audio tools in this session are speech-only (TTS); there is no standalone music or sound-effects generation available (explicitly restricted to a separate, non-accessible pipeline). This means Layers A–F (room tone, ambience, Foley, door signature, 3:13 motif, Maya presence texture) and the original score (§13, §16) **cannot be generated through Higgsfield** and must be built during the Colab/FFmpeg assembly pass — either synthesized programmatically (tone generators, filtered noise for room tone/wind, simple percussive/foley synthesis) or sourced from royalty-free libraries per the monetization checklist (§26). The Colab script (§27) should be updated to include this synthesis/sourcing step explicitly.
 
 **Voice lock:** Arjun's spoken lines use preset voice **Fraser** (`voice_id: 6705e465-7b52-5915-a1d8-b1222885e01d`, `voice_type: preset`) per user direction — update §18 dialogue-performance direction to treat this as the locked Arjun voice going forward. Narrator and Maya voices remain to be selected/locked in the next audio pass (recommend a distinct deep male preset for Narrator, distinct from Fraser, and a calm female preset for Maya — to be confirmed before bulk dialogue generation).
 
