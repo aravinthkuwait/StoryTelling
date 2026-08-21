@@ -711,7 +711,18 @@ Running log of everything actually produced via Higgsfield for this project (as 
 | S5-D | `d18b68cf-657f-4c3f-85ae-a8206638e134` | std/1080p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154945_d18b68cf-657f-4c3f-85ae-a8206638e134.mp4 |
 | S5-E | `462adeda-1bb7-4e93-a34b-61bfd4c2aaff` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_154945_462adeda-1bb7-4e93-a34b-61bfd4c2aaff.mp4 |
 
-Remaining: S5-F through S10-B (in progress, next bulk passes).
+| S5-F | `4aa13054-d19c-44cd-9cf3-0b609e5affcc` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_4aa13054-d19c-44cd-9cf3-0b609e5affcc.mp4 |
+| S6-A | `5a83513a-5049-4aa1-b92e-c20bb2ae8f6b` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_5a83513a-5049-4aa1-b92e-c20bb2ae8f6b.mp4 |
+| S6-B | `f75ce40d-9ce8-455c-9fc5-4b357901e566` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_f75ce40d-9ce8-455c-9fc5-4b357901e566.mp4 |
+| S6-C | `361bebce-34bd-4227-974e-ac209ccd4d08` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_361bebce-34bd-4227-974e-ac209ccd4d08.mp4 |
+| S6-D | `5beb1b41-383f-43a3-9d33-da73af2f48d3` | std/1080p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_5beb1b41-383f-43a3-9d33-da73af2f48d3.mp4 |
+| S7-A | `5a012ce6-ef72-4205-90f0-591d42111b6d` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_5a012ce6-ef72-4205-90f0-591d42111b6d.mp4 |
+| S7-B | `d33fb902-9429-45ff-91b9-4b83f661f2ad` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_d33fb902-9429-45ff-91b9-4b83f661f2ad.mp4 |
+| S7-C | `573fc611-3233-4789-9b25-044806012a51` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_573fc611-3233-4789-9b25-044806012a51.mp4 |
+| S7-D | `bba5afe3-8faf-4852-a916-413a6ffbb534` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_bba5afe3-8faf-4852-a916-413a6ffbb534.mp4 |
+| S7-E | `7ab140fb-01f2-4db7-b6dc-5aafdfa5ccbc` | fast/720p | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_160156_7ab140fb-01f2-4db7-b6dc-5aafdfa5ccbc.mp4 |
+
+Remaining: S7-F through S10-B (in progress, final bulk pass).
 
 **Voice lock:** Arjun's spoken lines use preset voice **Fraser** (`voice_id: 6705e465-7b52-5915-a1d8-b1222885e01d`, `voice_type: preset`) per user direction — update §18 dialogue-performance direction to treat this as the locked Arjun voice going forward. Narrator and Maya voices remain to be selected/locked in the next audio pass (recommend a distinct deep male preset for Narrator, distinct from Fraser, and a calm female preset for Maya — to be confirmed before bulk dialogue generation).
 
