@@ -512,20 +512,23 @@ For every hard cut between two generated clips of the same continuous scene (e.g
 
 ## 22. NEGATIVE PROMPT (MASTER — append to every generation)
 
+> Updated for the painterly-illustration style pivot (§ style pivot notice at top). The original photoreal-era negative prompt banned "cartoon, anime, illustration" outright — that clause is removed since illustration is now the intended look. Everything else (identity/continuity/anatomy/audio guards) is unchanged and still enforced.
+
 ```
-cartoon, anime, illustration, game graphics, low quality CGI, obvious AI
-look, artificial glossy surfaces, waxy skin, plastic skin, fake skin
-texture, excessive smoothing, blurry face, muddy details, oversharpening
-halos, low resolution, compression artifacts, changing actor identity,
-face change, hairstyle change, age change, costume change, body proportion
-change, ghost character change, inconsistent saree, inconsistent bedroom,
-changing furniture, changing door, changing corridor architecture, changing
-mirror location, changing clock, duplicate characters, extra people, extra
-body parts, extra fingers, malformed hands, distorted face, distorted eyes,
-asymmetrical eyes, floating furniture, melting objects, frame flicker,
-texture flicker, face flicker, random lighting changes, random color
-temperature changes, excessive fog, random smoke, artificial glow, neon
-ghost, glowing eyes, red eyes, zombie ghost, monster transformation, gore,
+flat cel-shaded cartoon look, chibi proportions, anime style, low quality
+CGI, obvious low-effort AI look, glossy plastic-rendered skin, waxy skin,
+fake vinyl-toy skin texture, excessive smoothing, blurry face, muddy
+details, oversharpening halos, low resolution, compression artifacts,
+changing actor identity, face change, hairstyle change, age change,
+costume change, body proportion change, ghost character change,
+inconsistent saree, inconsistent bedroom, changing furniture, changing
+door, changing corridor architecture, changing mirror location, changing
+clock, duplicate characters, extra people, extra body parts, extra
+fingers, malformed hands, distorted face, distorted eyes, asymmetrical
+eyes, floating furniture, melting objects, frame flicker, texture
+flicker, face flicker, random lighting changes, random color temperature
+changes, excessive fog, random smoke, artificial glow, neon ghost,
+glowing eyes, red eyes, zombie ghost, monster transformation, gore,
 blood-covered face, exposed wounds, screaming ghost, exaggerated acting,
 comedy expression, random smiling, stiff acting, robotic movement, random
 teleportation except specifically directed Maya position change, excessive
@@ -545,20 +548,24 @@ screaming, copyrighted music imitation
 ## 23. THUMBNAIL PROMPT
 
 ```
-Photoreal cinematic YouTube thumbnail, 16:9. A dark apartment corridor seen
-from a bedroom doorway at night. A beautiful South Indian woman in a dark
-charcoal-black saree with maroon blouse stands perfectly still at the far
-end, barely lit by cool moonlight edge light, long black hair, calm
-unblinking expression, small gold earring catching a glint of light. In the
-foreground, out-of-focus silhouette of a man's shoulder and the edge of a
+Cinematic semi-realistic painterly digital illustration, graphic-novel
+concept-art rendering, 16:9 YouTube thumbnail. A dark apartment corridor
+seen from a bedroom doorway at night. <<<6a76d358-065f-4aef-a1de-29e1d45d058f>>>
+stands perfectly still at the far end in her dark charcoal-black sheer
+saree with maroon blouse, barely lit by cool moonlight edge light, long
+flowing black hair, calm unblinking expression, small gold earring
+catching a glint of light. In the foreground, out-of-focus silhouette of
+<<<8b6fd528-e0e4-4c64-ab74-15e0ab114a67>>>'s shoulder and the edge of a
 wooden door frame, door slightly ajar. A digital clock glowing faintly in
-the extreme foreground corner reads 3:13. Deep but detailed shadows,
-natural film grain, high dynamic range, unsettling stillness, no text
-overlay baked into the image (title will be added in post).
+the extreme foreground corner reads 3:13. Deep but detailed shadows, soft
+painted brushwork, moody atmospheric haze, dramatic directional lighting,
+unsettling stillness, no text overlay baked into the image (title will be
+added in post).
 
-Negative: cartoon, oversaturated, glowing eyes, blood, gore, horror-makeup
-monster face, watermark, logo, extra people, distorted hands, low
-resolution.
+Negative: flat cel-shaded cartoon, chibi, anime, oversaturated, glowing
+eyes, blood, gore, horror-makeup monster face, watermark, logo, extra
+people, distorted hands, low resolution, photoreal skin pores,
+photographic realism.
 ```
 
 Add title text in post (Colab/PIL or Canva) — do not bake text into the Higgsfield render, per the negative prompt list.
@@ -666,7 +673,15 @@ Running log of everything actually produced via Higgsfield for this project (as 
 |---|---|---|---|---|
 | 2026-08-21 | Arjun character sheet (identity-locked via `Aravinth-v2` element) | `a3fcc1c6-61e1-4602-9354-c1385b6d399f` | nano_banana_2 (via nano_banana_pro request) | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_144702_a3fcc1c6-61e1-4602-9354-c1385b6d399f.png |
 | 2026-08-21 | Maya character sheet (original character, first generation) | `83381025-32a1-4943-867e-d65e54d4a93c` | nano_banana_2 (via nano_banana_pro request) | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_144707_83381025-32a1-4943-867e-d65e54d4a93c.png |
-| 2026-08-21 | `Maya-Lock` reference element created from the sheet above | `c455ad82-7550-4d5b-ba59-9d2c06275936` | Element | (locked, reuse via `<<<c455ad82-7550-4d5b-ba59-9d2c06275936>>>`) |
+| 2026-08-21 | `Maya-Lock` reference element created from the sheet above (superseded) | `c455ad82-7550-4d5b-ba59-9d2c06275936` | Element | (superseded — see below) |
+| 2026-08-21 | Maya round-face photoreal variants (unlocked exploration, not saved as element) | `9251b2f8-69be-4426-a11a-02d5bdf0ffb4`, `f02ed45b-990d-4b36-8460-bafc6bb42f1c` | nano_banana_2 | not locked |
+| 2026-08-21 | Cartoon-style Arjun (unlocked exploration, superseded by painterly pivot) | `32345dc0-b462-40e7-9446-213beee74769` | nano_banana_2 | not locked |
+| 2026-08-21 | Cartoon-style Maya (unlocked exploration, superseded by painterly pivot) | `ad187229-15f8-414d-a9c0-78eea5c43172` | nano_banana_2 | not locked |
+| 2026-08-21 | **Arjun painterly character sheet — CURRENT LOCK** | `8727f8db-30fa-4f3e-a53d-b9190f6bdcf9` | nano_banana_2 | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_150627_8727f8db-30fa-4f3e-a53d-b9190f6bdcf9.png |
+| 2026-08-21 | `Arjun-Lock` reference element created from the sheet above | `8b6fd528-e0e4-4c64-ab74-15e0ab114a67` | Element | reuse via `<<<8b6fd528-e0e4-4c64-ab74-15e0ab114a67>>>` |
+| 2026-08-21 | **Maya painterly character sheet ("the ghost girl") — CURRENT LOCK** | `bebb0f8d-f56f-4225-bbe6-d2cb74fc1110` | nano_banana_2 | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_150454_bebb0f8d-f56f-4225-bbe6-d2cb74fc1110.png |
+| 2026-08-21 | `Maya-Lock-v2` reference element created from the sheet above | `6a76d358-065f-4aef-a1de-29e1d45d058f` | Element | reuse via `<<<6a76d358-065f-4aef-a1de-29e1d45d058f>>>` |
+| 2026-08-21 | Combined continuity test — Arjun (doorway, foreground) + Maya (far corridor end), both locked elements in one frame, matches Scene 4 reveal | `803ca713-bf23-4ce3-ad8d-9cdd662527a4` | nano_banana_2 | https://d8j0ntlcm91z4.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/hf_20260821_151836_803ca713-bf23-4ce3-ad8d-9cdd662527a4.png |
 
 **Voice lock:** Arjun's spoken lines use preset voice **Fraser** (`voice_id: 6705e465-7b52-5915-a1d8-b1222885e01d`, `voice_type: preset`) per user direction — update §18 dialogue-performance direction to treat this as the locked Arjun voice going forward. Narrator and Maya voices remain to be selected/locked in the next audio pass (recommend a distinct deep male preset for Narrator, distinct from Fraser, and a calm female preset for Maya — to be confirmed before bulk dialogue generation).
 
