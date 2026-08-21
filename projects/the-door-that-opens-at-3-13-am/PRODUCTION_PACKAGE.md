@@ -1,7 +1,9 @@
 # THE DOOR THAT OPENS AT 3:13 AM
 ### Complete Production Package — Tamil Supernatural Horror Short Film (3:00)
 
-Format: 24 fps, 16:9, photorealistic cinematic. Generation engine: Higgsfield AI (Seedance 2.0 primary, Nano Banana Pro for stills). Assembly: Google Colab + FFmpeg.
+Format: 24 fps, 16:9. Generation engine: Higgsfield AI (Seedance 2.0 primary, Nano Banana Pro for stills). Assembly: Google Colab + FFmpeg.
+
+> **STYLE PIVOT (2026-08-21).** The film's visual style has changed from the original photorealistic-cinematic spec to a **semi-realistic painterly digital illustration** style (graphic-novel / concept-art rendering — not flat cel-shaded cartoon, not full photoreal), matched to a character reference sheet supplied by the user. This changes: character rendering (§2–§3), the master negative prompt (§22), and the thumbnail prompt (§23). It does **not** change the story, screenplay, shot timeline, sound design, silence timing, music, Tamil dialogue, or Colab/FFmpeg assembly logic (§1, §6–§21, §24–§28) — camera, lighting, blocking, and expression direction still apply, just executed as painted illustration frames/video instead of photographic ones. Where a still-active section below says "photoreal" or references skin pores/photographic realism, read it as superseded by this notice; it is left in place as a record of the original brief rather than rewritten line-by-line.
 
 Status legend used throughout: `[ ]` not generated · `[~]` generated, needs review · `[x]` locked/approved.
 
@@ -237,46 +239,28 @@ Runtime target: **180s** (+2–3s optional title card in edit, not in generated 
 
 ## 2. ARJUN — CHARACTER LOCK
 
-**Source:** existing Higgsfield reference element **`Aravinth-v2`** (id `95b741a7-c2f2-4e6e-9123-0d022c26da8c`). Use this element (`<<<95b741a7-c2f2-4e6e-9123-0d022c26da8c>>>`) in every Arjun prompt — never re-describe his face from scratch, to avoid identity drift.
+**CURRENT LOCK (painterly style, 2026-08-21):** element **`Arjun-Lock`** (id `8b6fd528-e0e4-4c64-ab74-15e0ab114a67`). Use `<<<8b6fd528-e0e4-4c64-ab74-15e0ab114a67>>>` in every Arjun prompt from this point forward — never re-describe his face from scratch, to avoid identity drift. Source image: see §29 Generated Assets Log.
 
-- Exact face, age, skin tone, hairstyle, facial hair, eye shape, nose, jaw, height/build as reference.
-- Costume (locked for entire film, no wardrobe changes): dark charcoal grey T-shirt, dark trousers, barefoot.
-- Physical performance notes: sleepy → confused → alert → afraid → denial → shattered, always eyes-first (see §9 micro-expression rule).
+- Age 26, height ~5'9", slim-fit build. Personality (performance direction, not on-screen text): calm, intelligent, curious, brave.
+- Identity carried from the original photo reference (`Aravinth-v2`, still the underlying likeness anchor) but now rendered in semi-realistic painterly illustration style: black wavy medium-length tousled hair, warm brown skin tone, calm/intelligent facial expression baseline.
+- Costume (locked for entire film, no wardrobe changes): black cotton Henley T-shirt (button placket, sleeves pushed up), dark charcoal-grey cotton jogger trousers, barefoot in-scene (shoes only appear in the standing reference-sheet pose, not in the film itself — the screenplay specifies barefoot throughout).
+- Physical performance notes: sleepy → confused → alert → afraid → denial → shattered, always eyes-first (see §9 micro-expression rule) — unchanged by the style pivot, since these are acting/posing instructions, not rendering instructions.
+
+*(Superseded) original photoreal lock: Higgsfield element `Aravinth-v2` (id `95b741a7-c2f2-4e6e-9123-0d022c26da8c`) used directly, no painterly reinterpretation. Kept on file as the underlying identity source, not for direct use in shots going forward.*
 
 ---
 
 ## 3. MAYA — CHARACTER LOCK
 
-No existing reference — **must be generated and locked before any video shot uses her.**
+**CURRENT LOCK (painterly style, "the ghost girl," 2026-08-21):** element **`Maya-Lock-v2`** (id `6a76d358-065f-4aef-a1de-29e1d45d058f`). Use `<<<6a76d358-065f-4aef-a1de-29e1d45d058f>>>` in every Maya prompt from this point forward. Source image: see §29 Generated Assets Log.
 
-**Maya master character-sheet prompt** (Nano Banana Pro, 2k, multi-view):
+- Age 25–28, height ~5'6", slim graceful build. Personality (performance direction): mysterious, calm, haunting, sad. Nature: supernatural spirit.
+- Rendered in semi-realistic painterly illustration style: pale luminous skin, deep haunting dark eyes with soft smoky shading beneath, long flowing wavy jet-black hair past the waist, delicate dangling earrings, calm/mysterious/sad baseline expression, mouth closed.
+- Costume (locked for entire film, no wardrobe changes): dark charcoal-black saree in sheer layered fabric over a fitted blouse with subtle embellished detailing along the border, barefoot.
+- **Physical-presence rule (unchanged from the original brief, deliberately kept despite the user's supplied reference sheet also depicting a progressive "ghost effect" dissolve):** Maya's main character lock is solid and fully physically present in every core shot — she never transforms, glows, or turns translucent on-screen. The horror comes from stillness, rare blinking, and calm speech, not from a visual dissolve effect. Only the saree fabric itself is sheer/translucent at the edges, per the costume note above.
+- **Optional ghost-effect variant (not yet generated, pending user confirmation):** if a dissolving/translucent "spirit" treatment is wanted for specific beats (e.g. the final corridor-light-off walk, §9 Scene 9), generate it as a separate insert using `Maya-Lock-v2` as the base identity reference plus an explicit transparency/dissolve instruction — do not bake it into the master lock.
 
-```
-Photoreal cinematic character reference sheet, four consistent views of the
-same woman: front-facing portrait, three-quarter profile, full-body standing,
-close-up eyes. South Indian woman, approximately 26 years old, elegant and
-strikingly beautiful in a subtle, sophisticated way — not glamorized. Long
-natural black hair with visible individual strands, soft natural part.
-Expressive dark brown eyes, calm and clear, minimal makeup, natural skin
-texture with visible pores, no plastic/waxy smoothing. Dark charcoal-black
-saree with deep muted maroon blouse, natural fabric drape and creases, small
-gold stud earrings. Barefoot. Neutral, calm expression, faint almost-smile,
-symmetrical face, no blemishes retouched away artificially. Soft directional
-studio-cool lighting, neutral grey background, consistent lighting across
-all four views. Natural skin pores, individual hair strands, sharp catchlight
-in each eye, photographic realism, 85mm portrait lens feel, shallow depth of
-field on the close-up panel only.
-
-Negative: cartoon, anime, glossy AI skin, plastic skin, over-smoothed,
-asymmetrical eyes, extra fingers, extra limbs, glowing eyes, red eyes,
-horror makeup, blood, distorted face, inconsistent hairstyle across panels,
-inconsistent age across panels, jewelry change across panels, costume change
-across panels, oversharpening halos, low resolution, watermark, text, logo.
-```
-
-Once generated, save the front-facing panel as a **Reference Element** named `Maya-Lock` and use `<<<maya_element_id>>>` in every subsequent Maya prompt (video and image), exactly as Arjun uses `Aravinth-v2`. Never re-describe Maya from text alone after this point.
-
-**LOCKED — generated 2026-08-21.** Maya-Lock element id: `c455ad82-7550-4d5b-ba59-9d2c06275936`. Use `<<<c455ad82-7550-4d5b-ba59-9d2c06275936>>>` in every Maya prompt from this point forward. Source character sheet image: see §29 Generated Assets Log.
+*(Superseded) prior locks, kept on file, not for use in shots going forward: `Maya-Lock` (id `c455ad82-7550-4d5b-ba59-9d2c06275936`, first-pass oval-face photoreal-adjacent design); an unlocked round-face photoreal variant pair generated mid-session but never saved as an element; an unlocked flat-2D-cartoon variant pair generated mid-session but never saved as an element.*
 
 ---
 
