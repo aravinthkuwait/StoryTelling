@@ -1,5 +1,23 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
+## v2 FINAL — realistic style, cloned voice, title card, animated captions (2026-08-25)
+
+- **FINAL (animated captions):** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/fcaf8c61-0f6b-4bd0-bfdc-df12b82ba1d2.mp4 (`fcaf8c61-0f6b-4bd0-bfdc-df12b82ba1d2`)
+- **Alternate (static captions):** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/f90bd50f-4541-4deb-a93f-847803c1ef4b.mp4 (`f90bd50f-4541-4deb-a93f-847803c1ef4b`)
+- **Thumbnail (4K 9:16, "THE MOON GOES DARK / AUG 28"):** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/23248fe9-a28c-4e3e-bd3f-d88bff10306b.png (`23248fe9-a28c-4e3e-bd3f-d88bff10306b`)
+- **Specs:** 1080×1920, 30 fps, 75.0 s (1.4 s title card + 8 scenes), −16 LUFS
+- **Voice:** cloned from the user's uploaded sample (element `5da742e5-ac1e-4f1f-8850-93b914c24c5f`, "Lunar Eclipse Narrator"); each scene retimed to the narration (slow-motion stretch up to 1.35× where needed, no audio time-stretch)
+- **Visuals:** Kling 3.0 pro, documentary-real prompts (handheld micro-shake, film grain, animated people/objects: pointing figure with breath fog, swaying grass, birds, rolling clouds, thumb-scroll)
+- **Captions:** whisper-timed, script-exact words; v3 burn = animated ASS (fast pop/fly-in alternating up/down, Montserrat ExtraBold caps, amber accent word per cue)
+- **Thumbnail render:** nano_banana_pro 4K, text baked via workflow overlay (beast style)
+- **v2 scene job IDs (Kling 3.0 pro):** ab4578d1, 88eb422e, 2ed862c3, 15f359b2, 4bd50e70, 8c12c116, 209d377c, 3bbed19c
+- **Cloned VO job IDs (seed_audio, 44.1 kHz):** 27a53725, 7e0fbb48, b638edb4, 01ce2811, d1e9b8d5, 181c5d68, e631bed6, 9e4eaee6
+- **YouTube monetization prep:** original scripted narration + user's own voice (transformative, not template content); tick "Altered content / synthetic media" disclosure at upload since realistic scenes are AI-generated.
+
+---
+
+## v1 (Grady preset voice, 65 s) — superseded
+
 Generated with Higgsfield on 2026-08-25.
 
 ## Final video
