@@ -1,0 +1,60 @@
+# Lunar Eclipse Video — Final Cinematic Cut (9:16)
+
+Generated with Higgsfield on 2026-08-25.
+
+## Final video
+
+- **URL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/4b3e8d34-85e5-46fc-971f-4f80bd1b7d3f.mp4
+- **Media ID:** `4b3e8d34-85e5-46fc-971f-4f80bd1b7d3f`
+- **Specs:** 1080×1920 (9:16), 30 fps, 65.3 s, H.264 + AAC, loudness-normalized to −16 LUFS
+- **Voiceover:** Grady (Higgsfield preset, deep male narrator), one take per scene,
+  each scene cut to its narration length (audio fitted per frame)
+- **Captions:** burned-in, bold Montserrat ExtraBold caps, whisper-timed against the
+  narration with script-exact wording (similarity 0.99, all 129 words timed, 36 cues)
+- **Credits spent:** ~126 (8 scene clips on Kling 3.0 pro + 8 VO takes + assembly)
+
+## Scene breakdown (storyboard → final timing)
+
+| # | Narration | Visual | Length |
+|---|---|---|---|
+| 1 | "On August 28th, the Moon turns to shadow…" | Full-frame Moon close-up, shadow creeping, high contrast | 5.7 s |
+| 2 | "This is the Corn Moon…" | Golden harvest moon rising over treeline, warm tones | 8.7 s |
+| 3 | "It gets partially eaten…" | Minimal Sun–Earth–Moon shadow-cone diagram | 7.0 s |
+| 4 | "…a dark bite carves into the surface… Just look up." | Eclipse timelapse → ground-level silhouette POV | 10.0 s |
+| 5 | "Two weeks ago the Moon blocked the Sun…" | Split screen: solar corona vs. lunar shadow bite | 5.8 s |
+| 6 | "It peaks after moonrise… And then it's gone." | Earth from space (Americas/Europe/Africa) → moon fading into cloud | 9.5 s |
+| 7 | "So here's my question…" | Crowd watching the sky → lonely phone-scrolling in the dark | 14.5 s |
+| 8 | "Tell me below. I'm reading every single one." | Hero moon shot reprise, clean lower third | 3.6 s |
+
+Note: the storyboard's 30-second grid was extended to ~65 s because the full script
+runs ~60 s at natural narration pace; every scene keeps its storyboard visual and
+is timed exactly to its voiceover line.
+
+## Scene clip job IDs (Kling 3.0 pro, 9:16, sound off)
+
+1. `4fe7b067-e033-4dbb-91d8-3ff83c3d9ade`
+2. `cf069c0d-73ed-46e7-ad8b-92c3d7ac8dc7`
+3. `ad7ee41b-df8f-46f2-ab54-8c78b5bc214b`
+4. `9c79e2a0-cdc8-481c-bdf3-10c6df110b3c`
+5. `4ee0d990-e0e1-400e-b506-c67d3c00f018`
+6. `a470e034-b798-467d-85e3-c75f06933322`
+7. `428827a1-1bd2-40d6-9bd8-ccfc77d92d91`
+8. `81a26483-645e-4814-888a-9e5bbcf9e32d`
+
+## Voiceover take job IDs (seed_audio, voice: Grady)
+
+1. `1828c69a-4d78-4d8f-a7f5-98fc7bcb773b`  (5.2 s)
+2. `4fbf864b-f13f-4d0e-af8a-92396f0f42a0`  (8.2 s)
+3. `f68f9e50-dd95-45ec-ae0a-25c5547cd17f`  (6.6 s)
+4. `9d60dc78-a2a3-4d70-82be-e5eb3102a555`  (9.6 s)
+5. `48391548-4830-44c1-bed5-b7a86d48b6dc`  (5.3 s)
+6. `fc8ebef8-cf86-4ddd-bf18-1571c2de2955`  (9.0 s)
+7. `f4193ea2-6d35-489d-a12e-fdc145a5f7ed`  (14.0 s)
+8. `75c0fea2-bd76-48ce-bc19-a440177c9e35`  (3.1 s)
+
+## Assembly pipeline (Higgsfield sandbox)
+
+Per scene: trim VO tail silence → scene length = VO + 0.55 s → clip trimmed to
+length, scaled/padded to 1080×1920 @30 fps (x264 CRF 18) → 0.2 s audio lead-in →
+concat all 8 → loudnorm −16 LUFS → whisper-timed captions (script-exact words) →
+bold Montserrat burn → upload + confirm.
