@@ -17,9 +17,13 @@
 - 92.5s, Tamil narration in the SAME cloned voice via `text2speech_v2` variant
   `minimax` (seed_audio produced garbled Tamil — whisper-verified; minimax verified clean)
 - Tamil VO job IDs: c377356a, fe258571, b210ddf6, c1059cb8, c6d665ad, e6e09046, 94d800cc, 41c5dc27
-- Captions: whisper word-timestamps (small model), Noto Sans Tamil Bold, animated;
-  NOTE: Tamil caption coverage is sparser/less exact than English (whisper-small
-  Tamil limitation) — can be redone with a larger model or manual SRT on request
+- Captions (REDONE 2026-08-25): display the EXACT authored Tamil script text.
+  Whisper supplies only the clock — per-segment word timestamps on each clean
+  voice take — and the authored words are mapped proportionally onto that
+  timeline, then chunked into ≤3-word cues. 37 cues, 84% runtime coverage
+  (gaps only at narration pauses), Noto Sans Tamil Bold 52px, animated fly-in.
+  Verified: caption-region pixel check at every mid-cue confirms glyphs render.
+  Builder scripts: `ta_exact_caps.py` (timing+text mapping), `srt2ass_ta.py`
 - Same suspense music bed, echo chain, thumbnail start+end cards
 
 ---
