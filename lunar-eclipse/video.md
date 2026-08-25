@@ -1,5 +1,29 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
+## v4 SUSPENSE FINAL — English (The Night Shift Star voice) — 2026-08-25
+
+- **URL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/07bf4aa8-2479-43cd-8ebd-71d2f8ef719b.mp4 (`07bf4aa8-2479-43cd-8ebd-71d2f8ef719b`)
+- 96.8s, thumbnail card at start (1.4s) AND end (1.8s)
+- Voice: user clone (element `5da742e5`), seed_audio, speech_rate −8, suspense pauses
+- Voice chain: highpass 75Hz, −2.5dB@300Hz, +3.5dB@4.2kHz, compressor, cinematic echo
+- Music: sonilo_music dark suspense bed (job `20a8b16c`), looped to length, ducked
+  under voice (sidechain), −14 LUFS master
+- Captions: whisper-timed animated fly-in, Montserrat, amber accents
+- Scenes slow-mo stretched to narration (up to 1.69×)
+
+## Tamil version — same voice, same video — 2026-08-25
+
+- **URL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/ddaffd9f-adc6-4fa0-b823-440be5369a00.mp4 (`ddaffd9f-adc6-4fa0-b823-440be5369a00`)
+- 92.5s, Tamil narration in the SAME cloned voice via `text2speech_v2` variant
+  `minimax` (seed_audio produced garbled Tamil — whisper-verified; minimax verified clean)
+- Tamil VO job IDs: c377356a, fe258571, b210ddf6, c1059cb8, c6d665ad, e6e09046, 94d800cc, 41c5dc27
+- Captions: whisper word-timestamps (small model), Noto Sans Tamil Bold, animated;
+  NOTE: Tamil caption coverage is sparser/less exact than English (whisper-small
+  Tamil limitation) — can be redone with a larger model or manual SRT on request
+- Same suspense music bed, echo chain, thumbnail start+end cards
+
+---
+
 ## v2 FINAL — realistic style, cloned voice, title card, animated captions (2026-08-25)
 
 - **FINAL (animated captions):** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/fcaf8c61-0f6b-4bd0-bfdc-df12b82ba1d2.mp4 (`fcaf8c61-0f6b-4bd0-bfdc-df12b82ba1d2`)

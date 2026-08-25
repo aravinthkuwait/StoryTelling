@@ -48,6 +48,20 @@ a video "using OpenMontage" (or asks for a video and OpenMontage is the intended
   unlock cloud providers. Piper TTS and the Remotion zero-key demos work without any keys.
 - **ffmpeg** is required at render time and is installed by the setup script.
 
+## The Night Shift Star — Channel Voice (MANDATORY)
+
+All videos for the user's YouTube channel **"The Night Shift Star"** must use the
+user's cloned Higgsfield voice element:
+
+- **Voice:** "Lunar Eclipse Narrator" — `voice_id: 5da742e5-ac1e-4f1f-8850-93b914c24c5f`,
+  `voice_type: "element"` (works with `seed_audio` and `text2speech_v2`)
+- Delivery style: suspense/thriller narration — slower pace (`speech_rate` ≈ −5 to −8),
+  dramatic pauses via ellipses in the TTS text, 48 kHz output
+- Post chain: highpass 75 Hz, −2.5 dB @300 Hz, +3.5 dB @4.2 kHz, compression,
+  subtle cinematic echo (`aecho=0.62:0.5:85:0.16`)
+- Music beds stay ducked under the voice (sidechain compress, bed ≈ 0.30 volume,
+  final loudnorm −14 LUFS)
+
 ## Higgsfield Credit Optimization
 
 When using Higgsfield AI for video/image generation, follow this model hierarchy to conserve credits:
