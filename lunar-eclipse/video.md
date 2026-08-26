@@ -1,6 +1,71 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
-## v7 CURRENT — English script de-duplicated (2026-08-26)
+## v8 CURRENT — Hard-Cut Thriller + Direct Address (2026-08-26)
+
+- **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/0b65fc74-e823-4c61-9253-40bd840c7718.mp4 (`0b65fc74-e823-4c61-9253-40bd840c7718`) — 78.4 s
+- **TAMIL:** unchanged, still v6 — `d081d860-dc25-4f34-aece-c366d99313bb` (91.9 s).
+  Its script is the older wording, so the two languages no longer match line for line.
+
+### The chosen read
+
+Blocks 1–6 use **style 06 Hard-Cut Thriller** (`speech_rate −4`); blocks 7–8 switch to
+**style 08 Direct Address** (`speech_rate −3`). The script already turns at block 7 — it
+stops narrating and starts asking — so the voice drops out of trailer mode for the last
+twelve seconds. Same cloned voice throughout, so the switch reads as intent.
+
+The rewrite runs 78.4 s against v7's 92.0 s: the trailer style is simply tighter.
+
+| # | Line |
+|---|---|
+| 1 | August 28th. The Moon turns to shadow. Don't miss it. |
+| 2 | This is the Corn Moon. The final one before autumn. But this year, it doesn't just rise. |
+| 3 | It gets partially eaten. Earth slides between the Sun and the Moon. |
+| 4 | And a dark bite grows across the surface. Right in front of you. No telescope. Nothing to set up. Just look up. |
+| 5 | Two weeks ago, the Moon blocked the Sun. Now Earth returns the favor. |
+| 6 | It peaks after moonrise. Visible across the Americas, Europe, and Africa. And then it's gone. |
+| 7 | So here's my question, and I actually want an answer. When it happens, are you going outside to watch? Or will you forget, scroll past this, and see the photos tomorrow wishing you'd looked? |
+| 8 | Tell me below. I'm reading every single one. |
+
+### Staccato is built in post, not asked of the TTS
+
+Style 06's punch — *The Moon. Turns. To shadow.* — is the one thing neither engine will
+hold. seed_audio stutters on single-word sentences (it produced "the moon turns, turns to
+shadow"); minimax and an ellipsis variant both smooth the fragments into one phrase
+(measured: no gap above 0.25 s anywhere). So `staccato.py` inserts the gaps after the fact,
+cutting on Whisper word boundaries and splicing silence:
+
+- block 1 — 0.24 s after *Moon*, 0.24 s after *turns*
+- block 4 — 0.26 s after *surface*, 0.30 s after *you*, 0.24 s after *telescope*
+- block 6 — 0.26 s after *moonrise*, 0.34 s after *Africa*
+
+Seven gaps total. Engineer hard pauses in the edit; do not expect the TTS to honour them.
+
+### Two takes rejected before they shipped
+
+- **Block 1** dropped the word *August* outright — speech began at 1.12 s with "28th".
+- **Block 4**'s "a dark bite cuts into the surface" came back genuinely slurred: Whisper
+  small *and* medium, plus an isolated 3 s clip, all heard "dark white curves". Reworded to
+  "a dark bite grows across the surface", which reads clean.
+
+Both regenerated on `text2speech_v2` / minimax. Every take is transcribed before it is used.
+
+### Verified on the finished cut
+
+- Zero adjacent duplicate words; **zero repeats of any word within 4 s**, whole video.
+- Captions realigned: 131/131 words, similarity **0.989**, 33 cues.
+- 55/55 beat zoom pulses fire; all 7 cut flares fire (+31 to +59 luma; cut 3 measures
+  +46 against its own pre-FX frames — a naive window reads it low only because the shot
+  cuts bright at that instant).
+- One long-form Whisper pass garbled block 6, but the take, the voice stem and the final
+  mix each transcribe it correctly in isolation — decoder drift, not an audio defect.
+
+Builder scripts: `build_v8.sh`, `staccato.py`, manifest `manifest_en.json`.
+Style reference for future videos: 10 delivery styles with punch words and TTS-ready lines.
+
+---
+
+
+## v7 — English script de-duplicated (2026-08-26)
 
 - **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/635ee8b3-4dd6-4348-8a32-35df6ec1ce6b.mp4 (`635ee8b3-4dd6-4348-8a32-35df6ec1ce6b`) — 92.0 s
 - **TAMIL FINAL:** unchanged from v6 — `d081d860-dc25-4f34-aece-c366d99313bb` (91.9 s)
