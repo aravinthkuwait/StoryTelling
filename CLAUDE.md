@@ -57,8 +57,11 @@ user's cloned Higgsfield voice element:
   `voice_type: "element"` (works with `seed_audio` and `text2speech_v2`)
 - Delivery style: suspense/thriller narration — slower pace (`speech_rate` ≈ −5 to −8),
   dramatic pauses via ellipses in the TTS text, 48 kHz output
-- Post chain: highpass 75 Hz, −2.5 dB @300 Hz, +3.5 dB @4.2 kHz, compression,
-  subtle cinematic echo (`aecho=0.62:0.5:85:0.16`)
+- Post chain (DRY — no reverb/echo): highpass 80 Hz, −2.0 dB @300 Hz, +2.5 dB @4 kHz,
+  gentle compression (`acompressor=threshold=-20dB:ratio=2.8:attack=8:release=200:makeup=3`)
+- **Never add `aecho`/reverb to this voice.** A slap-back delay repeats every word ~85 ms
+  later and smears consonants, which reads as stuttering and unclear speech. The suspense
+  comes from pacing and the ducked music bed, not from room effects.
 - Music beds stay ducked under the voice (sidechain compress, bed ≈ 0.30 volume,
   final loudnorm −14 LUFS)
 

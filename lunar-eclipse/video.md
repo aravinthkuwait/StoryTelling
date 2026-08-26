@@ -1,6 +1,60 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
-## v5 CURRENT — sky FX + cartoon animated cards (2026-08-26)
+## v6 CURRENT — beat zoom pulses, cut flares, dry (echo-free) voice (2026-08-26)
+
+- **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/a16771f8-3c9f-41a9-b141-5f2050beeb34.mp4 (`a16771f8-3c9f-41a9-b141-5f2050beeb34`) — 96.2 s
+- **TAMIL FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/d081d860-dc25-4f34-aece-c366d99313bb.mp4 (`d081d860-dc25-4f34-aece-c366d99313bb`) — 91.9 s
+- Thumbnail unchanged from v5 (`0fadbf7d-a8d6-4a0e-9a6d-ac56bfedf7f8`), still used as the
+  animated card at both the start (1.4 s) and the end (1.8 s).
+
+### Voice fix — the word doubling is gone
+
+The v4/v5 chain ended in `aecho=0.62:0.5:85:0.16`. That slap-back repeated every word
+~85 ms later and smeared consonants, which is what read as "words repeating / not smooth".
+Diagnosed by whisper-transcribing all 8 raw takes: **no stutter exists in any take** — the
+doubling was entirely the echo. v6 uses a dry chain and no reverb of any kind:
+
+    highpass=f=80,
+    equalizer=f=300:t=q:w=1.4:g=-2.0,
+    equalizer=f=4000:t=q:w=1.4:g=2.5,
+    acompressor=threshold=-20dB:ratio=2.8:attack=8:release=200:makeup=3
+
+Verified on the finished mix: whisper transcribes 131 words with **zero adjacent duplicate
+words**, and the caption aligner matches 129/129 script words at 0.96 similarity.
+Suspense now comes from pacing and the ducked bed, not from room effects.
+
+### Zoom pulse on beats
+
+`mkbeats.py` runs spectral-flux onset detection over the music bed (2048/512 STFT,
+adaptive local-mean threshold ×1.35, peak-pick with a 0.55 s minimum gap, top 55 onsets)
+and emits a `zoompan` expression — a Gaussian bump per beat, capped at 1.055×:
+
+    z = min(1.055, 1 + 0.05*(Σ exp(-((on/30 - b)^2)/0.005)))
+
+55 beats detected. Verified: every one of the 55 shows a frame-to-frame motion spike above
+its local baseline (median lift 3.12, min 0.99, max 59.18) — the pulse fires on all of them.
+
+### Light flares on cuts
+
+The same script emits an `eq` expression driven by the 7 scene boundaries — a brightness
+and saturation flash ~±60 ms wide at each cut:
+
+    brightness = 0.20*(Σ exp(-((t - c)^2)/0.0008))
+    saturation = 1 + 0.16*(Σ …)
+
+Verified: mean-luma lift at the 7 cut times is +24.1, +27.3, +46.2, +46.6, +47.7, +62.6,
++72.9 against the surrounding baseline — visible on every cut.
+
+Star drift, cloud haze, music bed, ducking, captions and cards are unchanged from v5.
+Builder scripts: `mkfx.py`, `mktext.py`, `mkbeats.py`, `ta_exact_caps.py`, `srt2ass2.py`.
+
+NOTE: v5's links (`79029e42…` EN, `7e46b281…` TA) still hold the previous cut; the v5
+upload credentials had expired, so v6 was published to new URLs.
+
+---
+
+
+## v5 — sky FX + cartoon animated cards (2026-08-26)
 
 - **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/79029e42-f185-4410-a7f8-0e3ce0af66fc.mp4 (`79029e42-f185-4410-a7f8-0e3ce0af66fc`) — 96.9 s
 - **TAMIL FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/7e46b281-b112-473a-bc48-6f55bb6472a8.mp4 (`7e46b281-b112-473a-bc48-6f55bb6472a8`) — 92.6 s
