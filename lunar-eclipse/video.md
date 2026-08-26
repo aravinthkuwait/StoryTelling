@@ -1,6 +1,85 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
-## v9 CURRENT — 03 Countdown Urgency, footage re-timed to the read (2026-08-26)
+## v10 CURRENT — first cut in the Aravinth High-Retention Shorts style (2026-08-26)
+
+- **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/6c9e210b-8a31-4dc2-9a9e-a5b6bd0e2913.mp4 (`6c9e210b-8a31-4dc2-9a9e-a5b6bd0e2913`) — 95.4 s
+- **TAMIL:** unchanged, still v6 — `d081d860-dc25-4f34-aece-c366d99313bb`, older wording.
+
+Denser script (213 words vs v9's 122), hook in the first two seconds, curiosity loop,
+a real numeric reveal, plus the first sound-effect layer and moving music bed.
+
+### The rate ceiling — measured, not assumed
+
+The style asks for 175–200 wpm. **The TTS will not go there.** Probed on the same 53-word
+paragraph:
+
+| | wpm |
+|---|---|
+| minimax `speech_rate` 0 | 121 |
+| minimax `speech_rate` +2 | 117 |
+| seed_audio `speech_rate` 0 | 114 |
+| seed_audio `speech_rate` +5 | 123 |
+
+**`speech_rate` barely does anything** — on minimax, +2 came back *slower* than 0. seed_audio
+responds weakly (114 → 123 across a 5-point swing). The knob is close to cosmetic, which also
+means the earlier "Countdown Urgency at −2" vs "suspense at −8" distinction was coming from
+the wording, not the parameter.
+
+What actually buys speed is removing dead space, which the style explicitly requires.
+`tighten.py` cuts every internal silence over 0.30 s down to 0.14 s on Whisper word
+boundaries — editing, never time-stretching, which rule 18 forbids. That took the takes from
+123 wpm to **138 wpm** on the finished cut (v9 was ~100). Reaching 175–200 would need a
+different TTS engine or the time-stretch the style rules out.
+
+### Ping-pong instead of extreme slow motion
+
+A denser line on a short clip demanded absurd stretch — block 1 wanted **2.47×** from a 6.0 s
+shot. Above 1.45× the build now plays the shot forward then reversed, doubling its length, and
+re-computes from there. Block 1 fell to 1.24×, block 4 to 0.94×, block 5 to 0.84×.
+
+### Sound effects — all original, generated not licensed
+
+`sfx.py` synthesises four cues from noise and sine sweeps (nothing licensed in, so nothing to
+clear): **whoosh** 0.50 s, **riser** 1.30 s, **impact** 0.45 s, **hit** 1.10 s.
+`mksfx_bed.py` then places them on **real narration beats** — Whisper locates the anchor word
+in the finished voice track, so the riser lands on the reveal and the impact lands on the
+number actually being spoken. 9 cues placed:
+
+- riser + impact on "one point four **million**" (39.4 s), impact on "**quarter**" (42.4 s)
+- the single low **hit** on "that's not **coincidence**" (61.6 s)
+- whooshes on alternate cuts only — rule 16 says not one on every transition
+
+Measured in the finished mix: hit **+4.3 dB**, whoosh **+4.5 dB** against the second before.
+All SFX are sidechained under the voice, so cues during speech stay deliberately subtle.
+
+### Music that moves
+
+The bed is no longer a flat 0.30. It dips before each reveal and lifts through it, via a
+per-frame volume expression built from the reveal timestamps. Measured on the bed alone:
+
+| reveal | dip before | lift during |
+|---|---|---|
+| 39.4 s | −5.3 dB | +4.1 dB |
+| 61.5 s | −4.0 dB | +4.3 dB |
+| 77.8 s | −7.7 dB | +1.8 dB |
+
+### Verified
+
+- 212 words over 92.5 s of speech = **138 wpm**.
+- Zero adjacent duplicate words; **zero repeats of any word within 4 s**.
+- Captions 213/213 words, similarity 0.944, 53 cues.
+- Padding cut from 0.25 s lead + 0.65 s tail to 0.06 s + 0.12 s.
+
+**Known residual:** ~10 seams between blocks still run 0.36–0.70 s, above the style's 0.30 s
+ceiling. `tighten.py` only works inside a take; the seams are set by segment assembly, and
+closing them means re-timing the video too. Worth fixing in the next build.
+
+Builder scripts: `build_v10.sh`, `tighten.py`, `sfx.py`, `mksfx_bed.py`, `manifest_en.json`.
+
+---
+
+
+## v9 — 03 Countdown Urgency, footage re-timed to the read (2026-08-26)
 
 - **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/9fe8916e-206d-49e5-9f96-b6d5282e3bab.mp4 (`9fe8916e-206d-49e5-9f96-b6d5282e3bab`) — 75.5 s
 - **TAMIL:** unchanged, still v6 — `d081d860-dc25-4f34-aece-c366d99313bb` (91.9 s), older wording.
