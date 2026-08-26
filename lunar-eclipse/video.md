@@ -1,6 +1,57 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
-## v10 CURRENT — first cut in the Aravinth High-Retention Shorts style (2026-08-26)
+## v11 CURRENT — block seams closed (2026-08-26)
+
+- **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/901e8b9b-535c-4a03-9428-401ca24cf45c.mp4 (`901e8b9b-535c-4a03-9428-401ca24cf45c`) — 93.1 s
+- **TAMIL:** unchanged, still v6 — `d081d860-dc25-4f34-aece-c366d99313bb`, older wording.
+
+### The v10 seam figure was measured with the wrong instrument
+
+v10 reported seams of 0.36-0.70 s. That came from **Whisper word-boundary timings**, which
+systematically overstate gaps: a conservative word-end plus a soft consonant onset reads as
+half a second of silence that isn't in the audio. `seams.py` now measures the actual
+contiguous sub-threshold span straddling each seam from the waveform (5 ms RMS frames,
+2 % of peak), which is what the style's pause rule is really about.
+
+Three changes closed them at source:
+
+- `TRIM` stripped **trailing** silence only. It now strips leading silence too, so a take
+  cannot start with a beat of room tone.
+- Tail pad `+0.12 s` -> **`+0.06 s`**, lead delay `60 ms` -> **`40 ms`**: a 0.10 s seam
+  budget, the bottom of the style's 0.10-0.30 s range.
+- The measurement runs **inside the build**, so a regression shows up in the log.
+
+Measured on this cut:
+
+| seam | silence |
+|---|---|
+| 15.73 s | 0.24 s |
+| 25.85 s | 0.20 s |
+| 32.74 s | 0.00 s |
+| 51.20 s | 0.00 s |
+| 62.88 s | 0.00 s |
+| 74.65 s | 0.11 s |
+| 87.11 s | 0.00 s |
+
+**worst 0.24 s, all within 0.30 s** (total 0.55 s across 7 seams).
+
+Nothing was clipped by the tighter joins - each seam was transcribed in a +/-2.2 s window and
+reads cleanly across the boundary ("...not for long. | This is the Corn Moon", "...set up,
+just look up | and there's something else", and so on). The caption aligner still matches
+**213/213** words, at 0.951.
+
+Net effect: 95.4 s -> **93.1 s**, and 138 -> **140 wpm**.
+
+Everything else carries over from v10 unchanged: 213-word script, `tighten.py` micro-pauses,
+ping-pong for short clips, the nine-cue SFX bed, the moving music bed, beat pulses and cut
+flares.
+
+Builder scripts: `build_v11.sh`, `seams.py`, `tighten.py`, `sfx.py`, `mksfx_bed.py`.
+
+---
+
+
+## v10 — first cut in the Aravinth High-Retention Shorts style (2026-08-26)
 
 - **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/6c9e210b-8a31-4dc2-9a9e-a5b6bd0e2913.mp4 (`6c9e210b-8a31-4dc2-9a9e-a5b6bd0e2913`) — 95.4 s
 - **TAMIL:** unchanged, still v6 — `d081d860-dc25-4f34-aece-c366d99313bb`, older wording.
