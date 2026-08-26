@@ -1,5 +1,29 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
+## v5 CURRENT — sky FX + cartoon animated cards (2026-08-26)
+
+- **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/79029e42-f185-4410-a7f8-0e3ce0af66fc.mp4 (`79029e42-f185-4410-a7f8-0e3ce0af66fc`) — 96.9 s
+- **TAMIL FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/7e46b281-b112-473a-bc48-6f55bb6472a8.mp4 (`7e46b281-b112-473a-bc48-6f55bb6472a8`) — 92.6 s
+- **CARTOON THUMBNAIL (4K 9:16):** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/0fadbf7d-a8d6-4a0e-9a6d-ac56bfedf7f8.png (`0fadbf7d-a8d6-4a0e-9a6d-ac56bfedf7f8`)
+  - nano_banana_pro cartoon art (glowing moon + sun + sparkle stars + swirling clouds),
+    title "AUGUST 28 / MOON GOES DARK" baked with the thumbnail workflow (beast style)
+- **Animated cards:** the same cartoon art animated with Kling 3.0 i2v (job `7c8c29cf`) —
+  twinkling stars, breathing moon/sun glow, drifting clouds — used for the 1.4 s opening
+  card and 1.8 s end card, with the title text composited on top so it stays crisp
+- **Sky effects on all 8 live scenes:** procedurally generated seamless tiles
+  (`mkfx.py`) screen-blended over the footage —
+  drifting starfield (14 px/s, sine twinkle, 0.32 opacity) + slow cloud haze
+  (5 px/s, 0.11 opacity, faded out at the top so the moon stays clean).
+  Verified: upper-sky mean brightness rises +2.7 to +8.6 vs the pre-FX cut.
+- Voice, suspense music bed, ducking and caption styling unchanged from v4;
+  EN captions whisper-aligned to script (0.95 similarity), TA captions exact script text.
+
+NOTE: the older links (`07bf4aa8…` EN, `ddaffd9f…` TA) still hold the previous,
+effect-free cut — their upload credentials expired, so v5 was published to new URLs.
+
+---
+
+
 ## v4 SUSPENSE FINAL — English (The Night Shift Star voice) — 2026-08-25
 
 - **URL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/07bf4aa8-2479-43cd-8ebd-71d2f8ef719b.mp4 (`07bf4aa8-2479-43cd-8ebd-71d2f8ef719b`)
