@@ -55,8 +55,19 @@ user's cloned Higgsfield voice element:
 
 - **Voice:** "Lunar Eclipse Narrator" — `voice_id: 5da742e5-ac1e-4f1f-8850-93b914c24c5f`,
   `voice_type: "element"` (works with `seed_audio` and `text2speech_v2`)
-- Delivery style: suspense/thriller narration — slower pace (`speech_rate` ≈ −5 to −8),
-  dramatic pauses via ellipses in the TTS text, 48 kHz output
+- Delivery style is chosen per video from the channel's ten reads (see `lunar-eclipse/video.md`).
+  Default is suspense/thriller at `speech_rate` ≈ −5 to −8; a brisk urgent read goes as high
+  as −2. Dramatic pauses come from ellipses in the TTS text. 48 kHz output.
+- **Verify every generated take before using it.** Transcribe with Whisper, `vad_filter=False`
+  (VAD ON can silently swallow a stutter). Reject any take with an adjacent duplicate word,
+  a dropped word, or an inserted one. Known failure modes:
+  - seed_audio auto-completes clichés — it rewrote "the final one before autumn" back into
+    "the last full moon of summer" twice. `text2speech_v2` / minimax does not.
+  - seed_audio stutters on single-word sentences ("The Moon. Turns. To shadow." → "turns, turns").
+  - **A sentence ending in "Sun." is read as "Sunday"** — the TTS treats it as the weekday
+    abbreviation. Never leave `Sun.` sentence-final; restructure the line.
+- Hard pauses cannot be requested from the TTS — neither engine honours ellipses or full stops
+  as real gaps. Splice them in post with `staccato.py`, which cuts on Whisper word boundaries.
 - Post chain (DRY — no reverb/echo): highpass 80 Hz, −2.0 dB @300 Hz, +2.5 dB @4 kHz,
   gentle compression (`acompressor=threshold=-20dB:ratio=2.8:attack=8:release=200:makeup=3`)
 - **Never add `aecho`/reverb to this voice.** A slap-back delay repeats every word ~85 ms

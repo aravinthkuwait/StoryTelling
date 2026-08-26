@@ -47,12 +47,18 @@ picked.sort()
 if len(picked) < 8:                      # fallback: steady pulse
     picked = [t for t in np.arange(1.0, dur - 0.3, 1.6)]
 
-zoom_terms = "+".join(f"exp(-pow(on/30-{b:.2f},2)/0.005)" for b in picked)
-zoom = f"min(1.055,1+0.05*({zoom_terms}))"
+import os
+AMP = float(os.environ.get("ZOOM_AMP", "0.05"))      # pulse depth
+CAP = float(os.environ.get("ZOOM_CAP", "1.055"))     # hard ceiling on zoom
+SIG = float(os.environ.get("ZOOM_SIG", "0.005"))     # pulse width (smaller = snappier)
+FLR = float(os.environ.get("FLARE_AMP", "0.20"))     # flare brightness
+
+zoom_terms = "+".join(f"exp(-pow(on/30-{b:.2f},2)/{SIG})" for b in picked)
+zoom = f"min({CAP},1+{AMP}*({zoom_terms}))"
 
 flare_terms = "+".join(f"exp(-pow(t-{c:.2f},2)/0.0008)" for c in cuts) or "0"
-bright = f"0.20*({flare_terms})"
-sat = f"1+0.16*({flare_terms})"
+bright = f"{FLR}*({flare_terms})"
+sat = f"1+{FLR*0.8:.3f}*({flare_terms})"
 
 with open(out, "w") as f:
     f.write(zoom + "\n" + bright + "\n" + sat + "\n")

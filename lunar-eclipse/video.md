@@ -1,6 +1,83 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
-## v8 CURRENT — Hard-Cut Thriller + Direct Address (2026-08-26)
+## v9 CURRENT — 03 Countdown Urgency, footage re-timed to the read (2026-08-26)
+
+- **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/9fe8916e-206d-49e5-9f96-b6d5282e3bab.mp4 (`9fe8916e-206d-49e5-9f96-b6d5282e3bab`) — 75.5 s
+- **TAMIL:** unchanged, still v6 — `d081d860-dc25-4f34-aece-c366d99313bb` (91.9 s), older wording.
+
+All eight blocks use **style 03 Countdown Urgency** (`speech_rate −2`): clipped, present
+tense, hard stops, no trailing thoughts. Runtime 75.5 s, down from v8's 78.4 s and v7's 92.0 s.
+
+### The cut now runs to the audio, not against it
+
+The old timing rule was `stretch = max(LEN/CLIP, 1.0)` — footage could only ever be slowed
+down. Against an urgent read that fights the pace: every shot drifts in slow motion while
+the voice pushes. v9 changes the floor to **0.70**, so a shot whose line is shorter than it
+plays *faster* than realtime (up to 1.43×) instead of being trimmed:
+
+| seg | stretch | |
+|---|---|---|
+| 1 | 1.323 | slow-mo (clip shorter than the line) |
+| 2 | 1.176 | slow-mo |
+| 3 | 0.972 | ~realtime |
+| 4 | 1.486 | slow-mo |
+| 5 | 1.177 | slow-mo |
+| 6 | 0.866 | **sped up** |
+| 7 | 0.700 | **sped up to the 1.43× floor** |
+| 8 | 1.045 | ~realtime |
+
+Also tightened for the faster read: opening card 1.4 s → **1.0 s**, end card 1.8 s → **1.4 s**,
+beat pulse deepened and sharpened (`ZOOM_AMP 0.05→0.065`, `ZOOM_SIG 0.005→0.0035`) and the
+cut flares strengthened (`FLARE_AMP 0.20→0.24`). `mkbeats.py` now reads these from the
+environment so a future video can dial its own intensity.
+
+### A capped stretch truncated a line — caught before publish
+
+The first v9 pass capped slow-motion at 1.45×. Block 4 needed 1.486×, so its video came out
+14.567 s against 14.920 s of audio and `-shortest` clipped 0.35 s off "Just look up." The
+upper cap was wrong: only the speed-up floor is needed. Removed, and every segment now
+verified `video ≥ audio` before the concat.
+
+### Four takes rejected, one for a genuinely odd reason
+
+- Block 1 came back "the moon **tone** turns to shadow" — a word inserted from nowhere.
+- Block 2 turned "the final **one** before autumn" into "the final **moon**", recreating the
+  exact repeat this whole thread has been about.
+- Block 7 inserted "catching **in** the photos".
+- Block 5 said "the Moon blocked the **Sunday**". Not a mishearing — an isolated clip with no
+  surrounding context still says it. **The TTS reads a sentence-final "Sun." as the weekday
+  abbreviation.** Rewritten as "the Sun went dark behind the Moon" so `Sun` is never
+  sentence-final. This is now a standing rule in `CLAUDE.md`.
+
+All four regenerated on minimax and re-verified.
+
+### Script
+
+| # | Line |
+|---|---|
+| 1 | August 28th. The Moon turns to shadow. One night. Don't miss it. |
+| 2 | This is the Corn Moon. The final one before autumn. And this year, it doesn't just rise. |
+| 3 | It gets partially eaten. Earth slides between the Sun and the Moon. |
+| 4 | A dark bite grows across the surface. Right in front of you. No telescope. Nothing to set up. Just look up. |
+| 5 | Two weeks ago, the Sun went dark behind the Moon. This time, Earth returns the favor. |
+| 6 | It peaks after moonrise. Visible across the Americas, Europe, and Africa. Then it's gone. |
+| 7 | So here's my question. When it happens, are you outside? Or are you scrolling, and seeing the photos tomorrow, wishing you'd looked? |
+| 8 | Tell me below. I'm reading every single one. |
+
+### Verified on the finished cut
+
+- Zero adjacent duplicate words; **zero repeats of any word within 4 s**, whole video.
+- Every segment's video ≥ its audio — nothing truncated.
+- Captions: 122/122 words, similarity **0.980**, 33 cues.
+- 55/55 beat pulses fire (median motion lift 4.44, up from 2.53 in v8).
+- 7/7 cut flares fire, **+55 to +67 luma** measured against the pre-FX frames.
+
+Builder script: `build_v9.sh`, manifest `manifest_en.json`, beat/flare generator `mkbeats.py`.
+
+---
+
+
+## v8 — Hard-Cut Thriller + Direct Address (2026-08-26)
 
 - **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/0b65fc74-e823-4c61-9253-40bd840c7718.mp4 (`0b65fc74-e823-4c61-9253-40bd840c7718`) — 78.4 s
 - **TAMIL:** unchanged, still v6 — `d081d860-dc25-4f34-aece-c366d99313bb` (91.9 s).
