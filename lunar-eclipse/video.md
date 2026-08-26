@@ -1,6 +1,59 @@
 # Lunar Eclipse Video — Final Cinematic Cut (9:16)
 
-## v6 CURRENT — beat zoom pulses, cut flares, dry (echo-free) voice (2026-08-26)
+## v7 CURRENT — English script de-duplicated (2026-08-26)
+
+- **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/635ee8b3-4dd6-4348-8a32-35df6ec1ce6b.mp4 (`635ee8b3-4dd6-4348-8a32-35df6ec1ce6b`) — 92.0 s
+- **TAMIL FINAL:** unchanged from v6 — `d081d860-dc25-4f34-aece-c366d99313bb` (91.9 s)
+
+### What "words are repeating" actually was
+
+Reported again at 10–14 s. Word timings on the v6 video clock:
+
+    12.42–12.94  "Moon"   <- "This is the Corn Moon"
+    14.24–14.60  "moon"   <- "the last full moon of summer"
+
+Not an audio defect. The acoustic self-similarity scan over each raw take finds
+nothing but sustained vowels, and Whisper **with VAD off** (small *and* medium)
+transcribes no doubled word in any take. The word *moon* is simply spoken twice
+inside two seconds with the same falling contour, so it lands as a stutter.
+(The earlier v6 check used `vad_filter=True`, which can collapse a repeat — that
+was the wrong instrument and is why the first pass came back clean.)
+
+Three lines carried the same pattern and were reworded:
+
+| # | was | now |
+|---|---|---|
+| 2 | "the Corn Moon — the last full **moon** of summer" | "the Corn Moon. The final one before autumn." |
+| 4 | "**No** telescope. **No** equipment." | "No telescope. Nothing to set up." |
+| 7 | "**are you going** outside to watch — or **are you going** to forget" | "are you actually going outside to watch? Or will you forget" |
+
+### seed_audio auto-completes clichés — use minimax for block 2
+
+seed_audio rendered blocks 4 and 7 correctly but **twice ignored block 2's edit**,
+speaking "the last full moon of summer" for both *"the last one of summer"* and
+*"the final one before autumn"*. A control line ("The night sky goes very quiet…")
+came back verbatim, so the model follows prompts in general — it snaps that one
+highly-clichéd phrase back to its language prior. `text2speech_v2` variant
+`minimax`, same cloned voice element, rendered it correctly on the first try, so
+block 2 now comes from minimax and the rest stay on seed_audio.
+
+### Verified on the finished English cut
+
+- Zero adjacent duplicate words; **zero repeats of any word within 4 s**, whole video.
+- Voice-only stem: 1 acoustic candidate (a cross-sentence prosody match, no lexical
+  repeat). The 79 candidates in the full mix are the looping music bed — the bed
+  alone yields 235, all at a 0.15 s lag, i.e. the musical pulse.
+- Captions realigned to the new wording: 128/128 words, similarity 0.969, 33 cues.
+- Effects intact: 55/55 beat zoom pulses fire; all 7 cut flares fire (+20 to +71 luma;
+  cut 6 measures +56.6 against its own pre-FX frames — a naive window there reads
+  negative only because the scene cuts bright→dark at that instant).
+
+Builder script: `build_v7.sh`, manifest `manifest_en.json`.
+
+---
+
+
+## v6 — beat zoom pulses, cut flares, dry (echo-free) voice (2026-08-26)
 
 - **ENGLISH FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/a16771f8-3c9f-41a9-b141-5f2050beeb34.mp4 (`a16771f8-3c9f-41a9-b141-5f2050beeb34`) — 96.2 s
 - **TAMIL FINAL:** https://d2ol7oe51mr4n9.cloudfront.net/user_3FXuOlg1HqS8yvURHbzZgj2jNLj/d081d860-dc25-4f34-aece-c366d99313bb.mp4 (`d081d860-dc25-4f34-aece-c366d99313bb`) — 91.9 s
